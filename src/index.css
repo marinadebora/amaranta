@@ -8,28 +8,19 @@
 }
 body{
   min-height: 100dvh;
- 
+  background-color: #769164;
+
 }
 .bgCafeteria{
-  background-image:url("https://res.cloudinary.com/deqbqghhq/image/upload/v1741494640/cafe_ksggbr.png") ;
-  background-size:cover;  
+  background-image:url("https://res.cloudinary.com/deqbqghhq/image/upload/v1741643208/cafe_1_pwhanm.png") ;
+  background-size:contain;  
+  background-repeat: no-repeat; 
 }
 
-.overlay {
-  position: fixed;
- 
-  width: 100%;
-  height: 100%;
-  z-index: 999;
+.bgPasteleria{
+  background-image:url("https://res.cloudinary.com/deqbqghhq/image/upload/v1741646443/cafe_1_pxvjru.png") ;
+  background-size:contain;  
+  background-repeat: no-repeat; 
 }
-.modal {
-  position: fixed;
-  width: 10rem;
-  height: 10rem;
-  top: 65%;
-  left: 50%;
- /*  transform: translate(-50%, -50%); */
-  background-size: cover;
 
-  z-index: 1000;
-}
+  

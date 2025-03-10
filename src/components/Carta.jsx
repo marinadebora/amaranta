@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import CardProduct from "./CardProduct";
-import Cafe from "./Cafe";
 import "../index.css"
+import Cafe from "./Cafe";
+import Tortas from "./Tortas";
+
 const Carta = () =>
 {
   //const [productos, setProductos] = useState([]);
@@ -41,18 +42,59 @@ const Carta = () =>
     { nombre: "Capuccino", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
     { nombre: "mocha", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
     { nombre: "Ice Capuccino", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Lungo", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
+    { nombre: "Capuccino", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
+    { nombre: "mocha", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
+    { nombre: "Ice Capuccino", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
+    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
+    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
+    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
+    { nombre: "Lungo", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
+    { nombre: "Capuccino", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
+    { nombre: "Crumble de manzana", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "Chesse cake", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "red velvet", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "brownie", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "Coco y dulce de leche", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "Ricota", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "budin de banana", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "budin de limos", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "budin de zanahoria", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "budin de marmolado", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "COOCKIES", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "MUFFINS", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "PANKAKES", precio: "120.00", descripcion: "", seccion: "pasteleria" },
+    { nombre: "TOSTADOS", precio: "120.00", descripcion: "", seccion: "pasteleria" },
   ]
 
-  let entradas = [];
+  let hamburguesas = [];
   let menu = [];
   let postres = [];
   let bebidas = [];
   let cafeteria = [];
-useEffect(() => {
- setTimeout(()=>{
-  setPage(page+1)
- },1000)
-}, [page]);
+  let pizzas = [];
+  let pasteleria = [];
+  useEffect(() =>
+  {
+    if (page === 0) {
+      setTimeout(() =>
+      {
+        setPage(1)
+      }, 1000)
+    }
+
+  }, [page]);
   /*   useEffect(() => {
       const fetchData = async () => {
         try {
@@ -89,15 +131,71 @@ useEffect(() => {
 
   }
   if (productos.length > 0) {
-    entradas = productos.filter(e => e.seccion == "entradas");
+    hamburguesas = productos.filter(e => e.seccion == "hamburguesas");
     menu = productos.filter(e => e.seccion == "Menú");
     postres = productos.filter(e => e.seccion == "Postres");
     bebidas = productos.filter(e => e.seccion == "Bebidas");
     cafeteria = productos.filter(e => e.seccion == "cafeteria");
+    pasteleria = productos.filter(e => e.seccion == "pasteleria");
+    pizzas = productos.filter(e => e.seccion == "pizas");
   }
   return (
-    <div className="w-full h-[100vh] flex items-center justify-center">
-        {
+    <div className="w-full h-full flex items-center justify-center ">
+      {
+        page === 0 ?
+          <div className=" w-[90%] h-[90vh] flex flex-col items-center justify-between">
+
+            <div className="h-[50%]  flex flex-col  items-center justify-center text-[#f9f5ec]">
+              <h1 className="text-3xl ">AMARANTA</h1>
+              <h2 className="text-sm">CAFE RESTO</h2>
+            </div>
+
+            <div className="text-[#f9f5ec]">
+              <div className="w-full flex items-center justify-center gap-2  text-2xl">
+                <p>●</p>
+              </div>
+              <p>CLUB PARAISO</p>
+            </div>
+          </div> :
+
+
+          <div className=" w-full h-full flex flex-col  items-center justify-center mt-5">
+            <div className="bg-[#fcf2f0] w-[90%] h-full flex flex-col  ">
+
+              <div className=" flex flex-col items-center mt-3 text-[#f0d1ce]">
+                <h1 className="text-2xl ">AMARANTA</h1>
+                <h2 className="text-sm">CAFE RESTO</h2>
+              </div>
+
+              <div className=" w-full h-full flex flex-col text-[#8f9980] p-6  ">
+                {
+                  page === 1 && cafeteria &&
+                  <Cafe cafeteria={cafeteria} />
+                }
+                {
+                  page===2&&pasteleria&&
+                  <Tortas pasteleria={pasteleria} />
+                }
+              </div>
+
+
+            </div>
+
+            <div className=" w-full flex items-center justify-center gap-2 mb-2 text-2xl text-[#769164] ">
+              <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={previouPage} >←</button>
+              <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={nextPage}>→</button>
+            </div>
+
+          </div>
+
+      }
+
+    </div>
+  );
+};
+
+export default Carta;
+/*  {
           page === 0 ?
           <div className=" w-[90%] h-[90vh] flex flex-col items-center justify-between">
 
@@ -113,210 +211,20 @@ useEffect(() => {
                 <p>CLUB PARAISO</p>
               </div>
               </div> :
-            <div className="bgCafeteria  w-[90%] h-[90vh] bg-[#fcf2f0] flex flex-col items-center justify-between">
+            <div className="border w-[90%] h-[90vh] bg-[#fcf2f0] flex flex-col items-center justify-between">
               <div className="flex flex-col items-center mt-3 text-[#f0d1ce]">
                 <h1 className="text-2xl ">AMARANTA</h1>
                 <h2 className="text-sm">CAFE RESTO</h2>
               </div>
-              <div className="w-full h-full flex flex-col text-[#8f9980] p-6 overflow-y-scroll">
-                
-               {
-                 cafeteria && 
-                 
-                  <div className="flex">
-                    <div className=" gap-6 flex flex-col justify-between text-xs">
 
-                      <div>
-                        <h1 className="text-sm">CAFÉ DE ESPECIALIDAD</h1>
-                        {
-                          cafeteria&& cafeteria.map(e=>(
-                            e.descripcion === "especialidad"&&
-                            <CardProduct
-                            nombre={e.nombre}
-                            precio={e.precio}
-                            descripcion={e.descripcion}
-                            />
-                           
-                          ))
-                        }
-                      </div>
 
-                      <div>
-                         <h1 className="text-sm">CAFÉ FRIOS</h1>
-                         {
-                          cafeteria&& cafeteria.map(e=>(
-                            e.descripcion === "frio"&&
-                            <CardProduct
-                            nombre={e.nombre}
-                            precio={e.precio}
-                            descripcion={e.descripcion}
-                            />
-                           
-                          ))
-                        }
-                      </div>
-                      <div >
-                         <h1 className="text-sm ">CLÁSICOS</h1>
-                         {
-                          cafeteria&& cafeteria.map(e=>(
-                            e.descripcion === "clasico"&&
-                            <CardProduct
-                            nombre={e.nombre}
-                            precio={e.precio}
-                            descripcion={e.descripcion}
-                            />
-                           
-                          ))
-                        }
-                      </div>
-                      <div className="">
-                    <h1 className="text-sm">INFUSIONES</h1>
-                         {
-                          cafeteria&& cafeteria.map(e=>(
-                            e.descripcion === "infusiones"&&
-                            <CardProduct
-                            nombre={e.nombre}
-                            precio={e.precio}
-                            descripcion={e.descripcion}
-                            />
-                           
-                          ))
-                        }
-                    </div>
-                    </div>
-                 {/*  {  <div className="overlay">
-                    <img className=" modal" src="https://res.cloudinary.com/deqbqghhq/image/upload/v1741494395/cafeteria_q5w2nv.png" alt="" />
-                    </div>} */}
-                   
-                  </div>
-                  
-                
-               }
-              </div>
+              <div className="w-full h-full flex flex-col text-[#8f9980] p-6 ">
+                {cafeteria && <Cafe cafeteria={cafeteria} />}
+        
             <div className="w-full flex items-center justify-center gap-2 mb-2 text-2xl text-[#769164] ">
               <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={previouPage} >←</button>
               <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={nextPage}>→</button>
             </div>
+              </div>
             </div>
-        }
-
-
-
-
-
-
-      
-
-    </div>
-  );
-};
-
-export default Carta;
-/*    <h1 className="text-2xl font-bold text-center mb-4">Menú</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {productos.map((producto, index) => (
-          <div key={index} className="border p-4 rounded-lg shadow-md">
-            <img src={producto.imagen} alt={producto.nombre} className="w-full h-40 object-cover rounded" />
-            <h2 className="text-lg font-bold">{producto.nombre}</h2>
-            <p className="text-gray-600">{producto.descripcion}</p>
-            <p className="text-green-500 font-semibold">💰 ${producto.precio}</p>
-          </div>
-        ))}
-      </div>
-      
-      
-      
-      
-      
-         <div className="flex flex-col items-center justify-center gap-5">
-
-    <div className=" w-full bg-[#00223] ">
-    <h2>ENTRADAS</h2>
-    <div>
-      {
-        entradas && 
-       entradas.map(e=>(
-        <CardProduct
-        nombre={e.nombre}
-        precio={e.precio}
-        descripcion={e.descripcion}
-          />
-       ))
-      }
-    </div>
-    </div>
-       <div className=" w-full bg-[#00223] ">
-    <h2>MENÚ</h2>
-    <div>
-      {
-        menu && 
-       menu.map(e=>(
-        <CardProduct
-        nombre={e.nombre}
-        precio={e.precio}
-        descripcion={e.descripcion}
-          />
-       ))
-      }
-    </div>
-    </div>
-   <div className=" w-full bg-[#00223] ">
-    <h2>POSTRES</h2>
-    <div>
-      {
-        postres && 
-       postres.map(e=>(
-        <CardProduct
-        nombre={e.nombre}
-        precio={e.precio}
-        descripcion={e.descripcion}
-          />
-       ))
-      }
-    </div>
-    </div>
-   <div className=" w-full bg-[#00223] ">
-    <h2>BEBIDAS</h2>
-    <div>
-      {
-        bebidas && 
-       bebidas.map(e=>(
-        <CardProduct
-        nombre={e.nombre}
-        precio={e.precio}
-        descripcion={e.descripcion}
-          />
-       ))
-      }
-    </div>
-    </div>
-<div className=" w-full bg-[#00223] ">
-    <h2>CAFETERIA</h2>
-    <div>
-      {
-        cafeteria && 
-       cafeteria.map(e=>(
-        <CardProduct
-        nombre={e.nombre}
-        precio={e.precio}
-        descripcion={e.descripcion}
-          />
-       ))
-      }
-    </div>
-    </div>
-
-
-    </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      */
+        } */

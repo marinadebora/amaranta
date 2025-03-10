@@ -2,7 +2,7 @@ import Carta from "./components/Carta";
 import "./App.css"
 function App() {
   return (
-    <div className="">
+    <div className=" w-full">
       <Carta />
     </div>
   );
