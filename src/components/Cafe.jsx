@@ -7,7 +7,7 @@ import "../index.css"
 const Cafe = ({ cafeteria }) =>
 {
   return (
-    <div className="bgCafeteria w-full h-[31rem]">
+    <div className=" w-full h-[90%]">
       <div className="h-full grid grid-cols-2 gap-4 text-xs overflow-y-scroll">
         <div className='flex flex-col gap-4'>
           <div className=''>

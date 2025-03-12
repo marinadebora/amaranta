@@ -6,10 +6,14 @@
   min-width: 0;
  
 }
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
 body{
   min-height: 100dvh;
   background-color: #769164;
-
+  overflow: hidden;
 }
 .bgCafeteria{
   background-image:url("https://res.cloudinary.com/deqbqghhq/image/upload/v1741643208/cafe_1_pwhanm.png") ;
@@ -23,4 +27,8 @@ body{
   background-repeat: no-repeat; 
 }
 
-  
+.bgMenu{
+  background-image:url("https://res.cloudinary.com/deqbqghhq/image/upload/v1741721198/menu_1_gyhmt3.png") ;
+  background-size:contain;  
+  background-repeat: no-repeat; 
+} 

@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import "../index.css"
 import Cafe from "./Cafe";
 import Tortas from "./Tortas";
-
+import Menu from "./Menu";
+import image from '../Images'
 const Carta = () =>
 {
   //const [productos, setProductos] = useState([]);
   const [page, setPage] = useState(0);
+  const backgrounds = ["",image.Coffee, image.pastries,image.menus,image.hamburgers,image.pizza,image.desserts,image.drinks];
+  const currentPage = page % backgrounds.length;
   let productos = [
     { nombre: "papas rusticas", precio: "15.00", descripcion: "porcion de ppapas fritas rusticas", seccion: "entradas" },
     { nombre: "ravioles", precio: "35.00", descripcion: "ravioles de ricota, jc, verdura", seccion: "menu" },
@@ -78,12 +81,12 @@ const Carta = () =>
     { nombre: "TOSTADOS", precio: "120.00", descripcion: "", seccion: "pasteleria" },
   ]
 
-  let hamburguesas = [];
+ // let hamburguesas = [];
   let menu = [];
-  let postres = [];
-  let bebidas = [];
+ // let postres = [];
+ // let bebidas = [];
   let cafeteria = [];
-  let pizzas = [];
+  //let pizzas = [];
   let pasteleria = [];
   useEffect(() =>
   {
@@ -131,43 +134,44 @@ const Carta = () =>
 
   }
   if (productos.length > 0) {
-    hamburguesas = productos.filter(e => e.seccion == "hamburguesas");
+   // hamburguesas = productos.filter(e => e.seccion == "hamburguesas");
     menu = productos.filter(e => e.seccion == "Menú");
-    postres = productos.filter(e => e.seccion == "Postres");
-    bebidas = productos.filter(e => e.seccion == "Bebidas");
+   // postres = productos.filter(e => e.seccion == "Postres");
+   // bebidas = productos.filter(e => e.seccion == "Bebidas");
     cafeteria = productos.filter(e => e.seccion == "cafeteria");
     pasteleria = productos.filter(e => e.seccion == "pasteleria");
-    pizzas = productos.filter(e => e.seccion == "pizas");
+   // pizzas = productos.filter(e => e.seccion == "pizas");
   }
   return (
-    <div className="w-full h-full flex items-center justify-center ">
+    <main className="flex flex-grow items-center justify-center ">
+   
       {
         page === 0 ?
           <div className=" w-[90%] h-[90vh] flex flex-col items-center justify-between">
 
-            <div className="h-[50%]  flex flex-col  items-center justify-center text-[#f9f5ec]">
-              <h1 className="text-3xl ">AMARANTA</h1>
+            <div className="w-full h-full  flex flex-col  items-center justify-center text-[#fcf2f2]">
+              <h1 className="text-3xl">AMARANTA</h1>
               <h2 className="text-sm">CAFE RESTO</h2>
             </div>
 
-            <div className="text-[#f9f5ec]">
-              <div className="w-full flex items-center justify-center gap-2  text-2xl">
+            <div className="text-[#f0f3e3]">
+              <div className="text-[#f6cec6] w-full flex items-center justify-center gap-2  text-2xl">
                 <p>●</p>
               </div>
-              <p>CLUB PARAISO</p>
+              <p className="text-xs">CLUB PARAISO</p>
             </div>
           </div> :
 
 
-          <div className=" w-full h-full flex flex-col  items-center justify-center mt-5">
-            <div className="bg-[#fcf2f0] w-[90%] h-full flex flex-col  ">
+          <div className=" w-full  h-[85vh] flex flex-col items-center justify-center" >
+            <div className=" bg-[#fcf2f0] w-[90%] h-full flex flex-col  "style={{ backgroundImage: `url(${backgrounds[currentPage]})`, backgroundSize: "cover",backgroundPosition: "center" }}>
 
-              <div className=" flex flex-col items-center mt-3 text-[#f0d1ce]">
+              <div className="w-full flex flex-col items-center mt-3 text-[#f0d1ce]">
                 <h1 className="text-2xl ">AMARANTA</h1>
                 <h2 className="text-sm">CAFE RESTO</h2>
               </div>
 
-              <div className=" w-full h-full flex flex-col text-[#8f9980] p-6  ">
+              <div className=" w-full h-full flex flex-col text-[#8f9980] p-2 ">
                 {
                   page === 1 && cafeteria &&
                   <Cafe cafeteria={cafeteria} />
@@ -176,12 +180,16 @@ const Carta = () =>
                   page===2&&pasteleria&&
                   <Tortas pasteleria={pasteleria} />
                 }
+                {
+                  page===3&&menu&&
+                  <Menu  />
+                }
               </div>
 
 
             </div>
 
-            <div className=" w-full flex items-center justify-center gap-2 mb-2 text-2xl text-[#769164] ">
+            <div className=" w-full flex items-center justify-center gap-2 my-1 text-2xl text-[#769164] ">
               <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={previouPage} >←</button>
               <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={nextPage}>→</button>
             </div>
@@ -190,7 +198,8 @@ const Carta = () =>
 
       }
 
-    </div>
+   
+    </main>
   );
 };
 
