@@ -15,20 +15,20 @@ body{
   background-color: #769164;
   overflow: hidden;
 }
-.bgCafeteria{
-  background-image:url("https://res.cloudinary.com/deqbqghhq/image/upload/v1741643208/cafe_1_pwhanm.png") ;
-  background-size:contain;  
-  background-repeat: no-repeat; 
+
+*::-webkit-scrollbar {
+  width: 0.5rem;
 }
 
-.bgPasteleria{
-  background-image:url("https://res.cloudinary.com/deqbqghhq/image/upload/v1741646443/cafe_1_pxvjru.png") ;
-  background-size:contain;  
-  background-repeat: no-repeat; 
+*::-webkit-scrollbar-track {
+  background: #f9eae6
 }
 
-.bgMenu{
-  background-image:url("https://res.cloudinary.com/deqbqghhq/image/upload/v1741721198/menu_1_gyhmt3.png") ;
-  background-size:contain;  
-  background-repeat: no-repeat; 
-} 
+*::-webkit-scrollbar-thumb {
+  background-color: #f2d0c7;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #f2d0c7;
+}
+.prueba{
+  background-color: #4a5b3f;
+}

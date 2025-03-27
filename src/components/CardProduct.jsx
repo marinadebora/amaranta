@@ -23,7 +23,7 @@ const CardProduct = ({nombre,precio}) => {
 
 CardProduct.propTypes = {
   nombre : PropTypes.string,
-  precio:PropTypes.string,
+  precio:PropTypes.string
 };
 
 export default CardProduct;

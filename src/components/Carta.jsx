@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../firebaseConfig";
 import "../index.css"
 import Cafe from "./Cafe";
 import Tortas from "./Tortas";
 import Menu from "./Menu";
 import image from '../Images'
+
+
 const Carta = () =>
 {
-  //const [productos, setProductos] = useState([]);
-  const [page, setPage] = useState(0);
+  const [productos, setProductos] = useState([]);
+  const [page, setPage] = useState(1);
   const backgrounds = ["",image.Coffee, image.pastries,image.menus,image.hamburgers,image.pizza,image.desserts,image.drinks];
   const currentPage = page % backgrounds.length;
-  let productos = [
+  /* let productos = [
     { nombre: "papas rusticas", precio: "15.00", descripcion: "porcion de ppapas fritas rusticas", seccion: "entradas" },
     { nombre: "ravioles", precio: "35.00", descripcion: "ravioles de ricota, jc, verdura", seccion: "menu" },
     { nombre: "bocha de helado", precio: "10.00", descripcion: "chocolate americano dl", seccion: "postres" },
@@ -79,7 +83,7 @@ const Carta = () =>
     { nombre: "MUFFINS", precio: "120.00", descripcion: "", seccion: "pasteleria" },
     { nombre: "PANKAKES", precio: "120.00", descripcion: "", seccion: "pasteleria" },
     { nombre: "TOSTADOS", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-  ]
+  ] */
 
  // let hamburguesas = [];
   let menu = [];
@@ -88,7 +92,7 @@ const Carta = () =>
   let cafeteria = [];
   //let pizzas = [];
   let pasteleria = [];
-  useEffect(() =>
+  /* useEffect(() =>
   {
     if (page === 0) {
       setTimeout(() =>
@@ -97,7 +101,7 @@ const Carta = () =>
       }, 1000)
     }
 
-  }, [page]);
+  }, [page]); */
   /*   useEffect(() => {
       const fetchData = async () => {
         try {
@@ -142,6 +146,17 @@ const Carta = () =>
     pasteleria = productos.filter(e => e.seccion == "pasteleria");
    // pizzas = productos.filter(e => e.seccion == "pizas");
   }
+
+  useEffect(() => {
+   const productosRef = collection(db,"productos")
+    getDocs(productosRef)
+    .then(res=>{
+      
+      const arr = res.docs.map(e=>({...e.data(),id:e.id}))
+      console.log([...arr])
+      setProductos([...arr])
+    })
+  }, []);
   return (
     <main className="flex flex-grow items-center justify-center ">
    
@@ -164,7 +179,7 @@ const Carta = () =>
 
 
           <div className=" w-full  h-[85vh] flex flex-col items-center justify-center" >
-            <div className=" bg-[#fcf2f0] w-[90%] h-full flex flex-col  "style={{ backgroundImage: `url(${backgrounds[currentPage]})`, backgroundSize: "cover",backgroundPosition: "center" }}>
+            <div className=" bg-[#fcf2f0] w-[90%] md:w-[50%] h-full flex flex-col  "style={{ backgroundImage: `url(${backgrounds[currentPage]})`, backgroundSize: "contain",backgroundPosition: "center",backgroundRepeat: "no-repeat" }}>
 
               <div className="w-full flex flex-col items-center mt-3 text-[#f0d1ce]">
                 <h1 className="text-2xl ">AMARANTA</h1>
@@ -174,7 +189,7 @@ const Carta = () =>
               <div className=" w-full h-full flex flex-col text-[#8f9980] p-2 ">
                 {
                   page === 1 && cafeteria &&
-                  <Cafe cafeteria={cafeteria} />
+                  <Cafe cafeteria={cafeteria}/>
                 }
                 {
                   page===2&&pasteleria&&

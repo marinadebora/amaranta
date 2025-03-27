@@ -6,15 +6,19 @@ import "../index.css"
 
 const Cafe = ({ cafeteria }) =>
 {
+  let frio = cafeteria.filter(e=>e.description === "frio");
+  let especialidad = cafeteria.filter(e=>e.description === "especialidad");
+  let clasico = cafeteria.filter(e=>e.description === "clasico");
+  let infusiones = cafeteria.filter(e=>e.description === "infusiones");
+
   return (
-    <div className=" w-full h-[90%]">
-      <div className="h-full grid grid-cols-2 gap-4 text-xs overflow-y-scroll">
+    <div className=" w-full h-[90%]" >
+      <div className="h-full grid grid-cols-2 gap-4 text-xs overflow-y-scroll px-2">
         <div className='flex flex-col gap-4'>
           <div className=''>
             <h1 className="text-sm">CAFÉ DE ESPECIALIDAD</h1>
             {
-              cafeteria && cafeteria.map(e => (
-                e.descripcion === "especialidad" &&
+              especialidad && especialidad.map((e)=> (
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
@@ -25,11 +29,10 @@ const Cafe = ({ cafeteria }) =>
             }
           </div>
 
-          <div className=''>
+          <div  className=''>
             <h1 className="text-sm">CAFÉ FRIOS</h1>
             {
-              cafeteria && cafeteria.map(e => (
-                e.descripcion === "frio" &&
+              frio && frio.map(e => (                
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
@@ -42,8 +45,7 @@ const Cafe = ({ cafeteria }) =>
           <div className=''>
             <h1 className="text-sm ">CLÁSICOS</h1>
             {
-              cafeteria && cafeteria.map(e => (
-                e.descripcion === "clasico" &&
+              clasico && clasico.map(e => (
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
@@ -58,8 +60,7 @@ const Cafe = ({ cafeteria }) =>
           <div className="">
             <h1 className="text-sm">INFUSIONES</h1>
             {
-              cafeteria && cafeteria.map(e => (
-                e.descripcion === "infusiones" &&
+              infusiones && infusiones.map(e => (
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
@@ -77,7 +78,7 @@ const Cafe = ({ cafeteria }) =>
 };
 
 Cafe.propTypes = {
-  cafeteria: PropTypes.array
+  cafeteria: PropTypes.array,
 };
 
 export default Cafe;
