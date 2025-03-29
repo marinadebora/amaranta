@@ -1,29 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CardProduct = ({nombre,precio}) => {
+const CardProduct = ({ name, price, description }) =>
+{
   return (
+    <div className='w-full flex flex-col'>
     <div className='w-full flex justify-between'>
-      <div className=''>
-      {
-        nombre&& <p>{nombre}</p>
-      }
-        </div>
-     
-     
-    <div>
-    {
-        precio&& <p>${precio}</p>
-      }
+      <div>{name && <p>{name}</p>}</div>
+      <div>{price && <p>${price}</p>}</div>
     </div>
-     
+    <div className=''>
+    <div>{description && <p>{description}</p>}</div>
+    </div>
     </div>
   );
 };
 
 CardProduct.propTypes = {
-  nombre : PropTypes.string,
-  precio:PropTypes.string
+  name: PropTypes.string,
+  price: PropTypes.string
 };
 
 export default CardProduct;

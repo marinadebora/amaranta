@@ -1,129 +1,18 @@
-import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore"
-import { db } from "../firebaseConfig";
+import { useState, useEffect  } from "react";
 import "../index.css"
 import Cafe from "./Cafe";
-import Tortas from "./Tortas";
-import Menu from "./Menu";
+import Pasteleria from "./Pasteleria";
+import AlPlato from "./AlPlato";
 import image from '../Images'
+import Tapeo from "./Tapeo";
 
 
 const Carta = () =>
 {
-  const [productos, setProductos] = useState([]);
-  const [page, setPage] = useState(1);
-  const backgrounds = ["",image.Coffee, image.pastries,image.menus,image.hamburgers,image.pizza,image.desserts,image.drinks];
+  const [page, setPage] = useState(0);
+  const backgrounds = ["",image.Coffee, image.pastries,"",image.menus,image.hamburgers,image.pizza,image.desserts,image.drinks];
   const currentPage = page % backgrounds.length;
-  /* let productos = [
-    { nombre: "papas rusticas", precio: "15.00", descripcion: "porcion de ppapas fritas rusticas", seccion: "entradas" },
-    { nombre: "ravioles", precio: "35.00", descripcion: "ravioles de ricota, jc, verdura", seccion: "menu" },
-    { nombre: "bocha de helado", precio: "10.00", descripcion: "chocolate americano dl", seccion: "postres" },
-    { nombre: "aquarius", precio: "12.00", descripcion: "manzana naranja pomelo", seccion: "bebidas" },
-    { nombre: "cortado", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "papas rusticas", precio: "15.00", descripcion: "porcion de ppapas fritas rusticas", seccion: "entradas" },
-    { nombre: "ravioles", precio: "35.00", descripcion: "ravioles de ricota, jc, verdura", seccion: "menu" },
-    { nombre: "bocha de helado", precio: "10.00", descripcion: "chocolate americano dl", seccion: "postres" },
-    { nombre: "aquarius", precio: "12.00", descripcion: "manzana naranja pomelo", seccion: "bebidas" },
-    { nombre: "cortado", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
-    { nombre: "papas rusticas", precio: "15.00", descripcion: "porcion de ppapas fritas rusticas", seccion: "entradas" },
-    { nombre: "ravioles", precio: "35.00", descripcion: "ravioles de ricota, jc, verdura", seccion: "menu" },
-    { nombre: "bocha de helado", precio: "10.00", descripcion: "chocolate americano dl", seccion: "postres" },
-    { nombre: "aquarius", precio: "12.00", descripcion: "manzana naranja pomelo", seccion: "bebidas" },
-    { nombre: "Ice Latte", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
-    { nombre: "papas rusticas", precio: "15.00", descripcion: "porcion de ppapas fritas rusticas", seccion: "entradas" },
-    { nombre: "ravioles", precio: "35.00", descripcion: "ravioles de ricota, jc, verdura", seccion: "menu" },
-    { nombre: "bocha de helado", precio: "10.00", descripcion: "chocolate americano dl", seccion: "postres" },
-    { nombre: "aquarius", precio: "12.00", descripcion: "manzana naranja pomelo", seccion: "bebidas" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Cortado", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
-    { nombre: "Cafe con leche", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
-    { nombre: "expresso", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Americano", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Lungo", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Capuccino", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "mocha", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
-    { nombre: "Ice Capuccino", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
-    { nombre: "Americano", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Lungo", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Capuccino", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "mocha", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
-    { nombre: "Ice Capuccino", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Lungo", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Capuccino", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "mocha", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
-    { nombre: "Ice Capuccino", precio: "12.00", descripcion: "frio", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
-    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
-    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
-    { nombre: "Lagrima", precio: "12.00", descripcion: "clasico", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Té", precio: "12.00", descripcion: "infusiones", seccion: "cafeteria" },
-    { nombre: "Lungo", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Capuccino", precio: "12.00", descripcion: "especialidad", seccion: "cafeteria" },
-    { nombre: "Crumble de manzana", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "Chesse cake", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "red velvet", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "brownie", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "Coco y dulce de leche", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "Ricota", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "budin de banana", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "budin de limos", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "budin de zanahoria", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "budin de marmolado", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "COOCKIES", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "MUFFINS", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "PANKAKES", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-    { nombre: "TOSTADOS", precio: "120.00", descripcion: "", seccion: "pasteleria" },
-  ] */
 
- // let hamburguesas = [];
-  let menu = [];
- // let postres = [];
- // let bebidas = [];
-  let cafeteria = [];
-  //let pizzas = [];
-  let pasteleria = [];
-  /* useEffect(() =>
-  {
-    if (page === 0) {
-      setTimeout(() =>
-      {
-        setPage(1)
-      }, 1000)
-    }
-
-  }, [page]); */
-  /*   useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const url = import.meta.env.VITE_URL;
-          const response = await fetch(url);
-          const text = await response.text();
-          const rows = text.split("\n").slice(1);
-          console.log(response)
-          
-          const data = rows.map((row) => {
-            const [MarcaTemporal,nombre, precio, descripcion, seccion] = row.split(",");
-            return {MarcaTemporal, nombre, precio, descripcion, seccion };
-          });
-  
-          setProductos(data);
-        } catch (error) {
-          console.error("Error al obtener datos:", error);
-        }
-      };
-  
-      fetchData();
-    }, []); */
   const nextPage = () =>
   {
     setPage(page + 1)
@@ -137,26 +26,17 @@ const Carta = () =>
     }
 
   }
-  if (productos.length > 0) {
-   // hamburguesas = productos.filter(e => e.seccion == "hamburguesas");
-    menu = productos.filter(e => e.seccion == "Menú");
-   // postres = productos.filter(e => e.seccion == "Postres");
-   // bebidas = productos.filter(e => e.seccion == "Bebidas");
-    cafeteria = productos.filter(e => e.seccion == "cafeteria");
-    pasteleria = productos.filter(e => e.seccion == "pasteleria");
-   // pizzas = productos.filter(e => e.seccion == "pizas");
-  }
-
-  useEffect(() => {
-   const productosRef = collection(db,"productos")
-    getDocs(productosRef)
-    .then(res=>{
-      
-      const arr = res.docs.map(e=>({...e.data(),id:e.id}))
-      console.log([...arr])
-      setProductos([...arr])
-    })
-  }, []);
+  useEffect(() =>
+    {
+      if (page === 0) {
+        setTimeout(() =>
+        {
+          setPage(1)
+        }, 1000)
+      }
+  
+    }, [page]);
+  
   return (
     <main className="flex flex-grow items-center justify-center ">
    
@@ -188,17 +68,21 @@ const Carta = () =>
 
               <div className=" w-full h-full flex flex-col text-[#8f9980] p-2 ">
                 {
-                  page === 1 && cafeteria &&
-                  <Cafe cafeteria={cafeteria}/>
+                  page === 1 && 
+                  <Cafe/>
                 }
                 {
-                  page===2&&pasteleria&&
-                  <Tortas pasteleria={pasteleria} />
+                  page===2&&
+                  <Pasteleria/>
                 }
                 {
-                  page===3&&menu&&
-                  <Menu  />
+                  page===3&&
+                  <Tapeo  />
                 }
+                {
+                  page===6&&
+                  <AlPlato  />
+                } 
               </div>
 
 
