@@ -1,23 +1,16 @@
 import React from 'react';
 import CardProduct from './CardProduct';
-import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore"
-import { db } from "../firebase/config";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { getTapeo } from '../redux/thunks';
 const Tapeo = () =>
 {
-  const [tapeo, setTapeo] = useState([]);
-
+const {tapeo} = useSelector(state => state.carta);
+const dispatch = useDispatch();
   useEffect(() =>
   {
-    const tapeoRef = collection(db, "tapeo")
-    getDocs(tapeoRef)
-      .then(res =>
-      {
-
-        const arr = res.docs.map(e => ({ ...e.data(), id: e.id }))
-        setTapeo([...arr])
-      })
-  }, []);
+    dispatch(getTapeo())
+  }, [dispatch]);
 
   let picadasCalientes = tapeo?.filter(e => e.section === "picadas"&&e.name === "hot" );
   let picadasClasicas = tapeo?.filter(e => e.section === "picadas" && e.name === "classics");

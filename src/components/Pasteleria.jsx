@@ -1,24 +1,17 @@
 import React from 'react';
 import CardProduct from './CardProduct';
-import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore"
-import { db } from "../firebase/config";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { getPasteleria } from '../redux/thunks';
 
 const Pasteleria = () =>
 {
-  const [pasteleria, setPasteleria] = useState([]);
-
+  const { pasteleria } = useSelector(state => state.carta);
+  const dispatch = useDispatch()
   useEffect(() =>
   {
-    const pasteleriaRef = collection(db, "pasteleria")
-    getDocs(pasteleriaRef)
-      .then(res =>
-      {
-
-        const arr = res.docs.map(e => ({ ...e.data(), id: e.id }))
-        setPasteleria([...arr])
-      })
-  }, []);
+    dispatch(getPasteleria())
+  }, [dispatch]);
 
   let tortas = pasteleria?.filter(e => e.section === "cakes");
   let budines = pasteleria?.filter(e => e.section === "puddings");
@@ -36,7 +29,7 @@ const Pasteleria = () =>
               <h1 className="text-sm">TORTAS</h1>
             </div>
             {
-              tortas.length>0 && tortas.map((e) => (
+              tortas.length > 0 && tortas.map((e) => (
                 <CardProduct
                   name={e.name}
                   price={e.price}

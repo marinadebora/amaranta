@@ -1,22 +1,20 @@
 import React from 'react';
 import CardProduct from "./CardProduct";
-import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore"
-import { db } from "../firebase/config";
+import {  useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { getCafeteria } from '../redux/thunks';
 
 
 const Cafe = () =>
 {
-  const [cafeteria, setCafeteria] = useState([]);
+ const {cafeteria} = useSelector(state => state.carta);
+ 
+ const dispatch= useDispatch()
     useEffect(() => {
-     const cafeteriaRef = collection(db,"cafeteria")
-      getDocs(cafeteriaRef)
-      .then(res=>{
-        
-        const arr = res.docs.map(e=>({...e.data(),id:e.id}))
-        setCafeteria([...arr])
-      })
-    }, []);
+   dispatch(getCafeteria())
+  
+    }, [dispatch]);
+
   let frio = cafeteria.filter(e=>e.section === "cold");
   let especialidad = cafeteria.filter(e=>e.section === "specialty");
   let clasico = cafeteria.filter(e=>e.section === "classics");
@@ -102,6 +100,7 @@ const Cafe = () =>
           </div>
 
         </div>
+        
       </div>
     </div>
   );
