@@ -15,16 +15,21 @@ import BebidasAlcohol from "./BebidasAlcohol";
 const Carta = () =>
 {
   const [page, setPage] = useState(0);
-  const backgrounds = ["", image.Coffee, image.pastries, "",  image.pizza,image.hamburgers,"",image.menus, image.desserts, image.drinks,""];
+  const backgrounds = ["", image.Coffee, image.pastries, "", image.pizza, image.hamburgers, "", image.menus, image.desserts, image.drinks, ""];
   const currentPage = page % backgrounds.length;
   const nextPage = () =>
   {
-    setPage(page + 1)
+    if(page === 10){
+      setPage(1)
+    }else{
+      setPage(page + 1)
+    }
+   
   }
   const previouPage = () =>
   {
-    if (page === 0) {
-      setPage(page)
+    if (page === 1) {
+      setPage(10)
     } else {
       setPage(page - 1)
     }
@@ -84,40 +89,39 @@ const Carta = () =>
                 }
                 {
                   page === 3 &&
-                  <Tapeo/>
+                  <Tapeo />
                 }
                 {
                   page === 4 &&
-                  <PizzaTartasEmpanadas  />
+                  <PizzaTartasEmpanadas />
                 }
-               
+
                 {
- page ===5 &&
- <EntrePanes  />
+                  page === 5 &&
+                  <EntrePanes />
                 }
                 {
                   page === 6 &&
-                  <EnsaladasGuarniciones  />
+                  <EnsaladasGuarniciones />
                 }
-                
-                     {
+
+                {
                   page === 7 &&
                   <AlPlato />
                 }
                 {
                   page === 8 &&
-                  <Postres  />
+                  <Postres />
                 }
                 {
                   page === 9 &&
-                  <Bebidas  />
+                  <Bebidas />
                 }
-                 {
+                {
                   page === 10 &&
-                  <BebidasAlcohol  />
+                  <BebidasAlcohol />
                 }
               </div>
-
 
             </div>
 
@@ -136,36 +140,3 @@ const Carta = () =>
 };
 
 export default Carta;
-/*  {
-          page === 0 ?
-          <div className=" w-[90%] h-[90vh] flex flex-col items-center justify-between">
-
-              <div className="h-[50%]  flex flex-col  items-center justify-center text-[#f9f5ec]">
-                <h1 className="text-3xl ">AMARANTA</h1>
-                <h2 className="text-sm">CAFE RESTO</h2>
-              </div>
-
-              <div className="text-[#f9f5ec]">
-                <div className="w-full flex items-center justify-center gap-2  text-2xl">
-                  <p>●</p>
-                </div>
-                <p>CLUB PARAISO</p>
-              </div>
-              </div> :
-            <div className="border w-[90%] h-[90vh] bg-[#fcf2f0] flex flex-col items-center justify-between">
-              <div className="flex flex-col items-center mt-3 text-[#f0d1ce]">
-                <h1 className="text-2xl ">AMARANTA</h1>
-                <h2 className="text-sm">CAFE RESTO</h2>
-              </div>
-
-
-              <div className="w-full h-full flex flex-col text-[#8f9980] p-6 ">
-                {cafeteria && <Cafe cafeteria={cafeteria} />}
-        
-            <div className="w-full flex items-center justify-center gap-2 mb-2 text-2xl text-[#769164] ">
-              <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={previouPage} >←</button>
-              <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={nextPage}>→</button>
-            </div>
-              </div>
-            </div>
-        } */
