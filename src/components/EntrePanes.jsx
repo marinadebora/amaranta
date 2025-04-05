@@ -33,7 +33,7 @@ const EntrePanes = () => {
                    <CardProduct
                      name={e.name}
                      price={e.price}
-                     description=""
+                     description={e.description || ""}
                    />
    
                  ))
@@ -52,7 +52,7 @@ const EntrePanes = () => {
                  <CardProduct
                    name={e.name}
                    price={e.price}
-                   description=""
+                   description={e.description || ""}
                  />
    
                ))
@@ -63,7 +63,7 @@ const EntrePanes = () => {
                  <CardProduct
                    name={e.name}
                    price={e.price}
-                   description=""
+                   description={e.description || ""}
                  />
    
                ))
@@ -72,9 +72,9 @@ const EntrePanes = () => {
              {
                opcional && opcional.map((e) => (
                  <CardProduct
-                   name={e.name}
-                   price={e.price}
-                   description=""
+                   name={e.name || ""}
+                   price={e.price || ""}
+                   description={e.description || ""}
                  />
    
                ))

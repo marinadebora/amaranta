@@ -3,6 +3,8 @@ import CardProduct from "./CardProduct";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getBebidasAlcohol } from "../redux/thunks";
+import funcCapitalize from "../utils/capitalizeFirstLatter";
+
 const BebidasAlcohol = () =>
 {
   const { bebidasAlcohol } = useSelector(state => state.carta);
@@ -13,11 +15,11 @@ const BebidasAlcohol = () =>
     dispatch(getBebidasAlcohol())
   }, [dispatch]);
 
-  let vinosPotreo = bebidasAlcohol.filter(e => e.section === "vinos" && e.bodega === "vinos de potrero");
-  let vinos = bebidasAlcohol.filter(e => e.section === "vinos" && e.bodega != "vinos de potrero");
+  let vinosPotreo = bebidasAlcohol.filter(e => e.section === "vinos" && e.bodega.toLowerCase() === "vinos de potrero");
+  let vinos = bebidasAlcohol.filter(e => e.section === "vinos" && e.bodega.toLowerCase() != "vinos de potrero");
   let cervezas = bebidasAlcohol.filter(e => e.section === "cervezas");
   let tragosAperitivos = bebidasAlcohol.filter(e => e.section === "tragos y aperitivos");
-  console.log(bebidasAlcohol)
+ 
   return (
     <div className=" w-full h-[94%] " >
       <div className="h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
@@ -51,7 +53,7 @@ const BebidasAlcohol = () =>
                     <CardProduct
                       name={e.name}
                       price={e.price1}
-                      description=""
+                      description={e.description || ""}
                     />
                   </div>
                 ))
@@ -75,11 +77,12 @@ const BebidasAlcohol = () =>
               cervezas && cervezas.map((e) => (
                 <div className='w-full flex items-start justify-between gap-1'>
                   <div className='w-[60%]'>
-                    <p>{e.name && e.name}</p>
+                   {e.name && <p>{funcCapitalize(e.name)}</p>}
+                   {e.description && <p>{e.description}</p>}
                   </div>
                   <div className='w-[40%] flex items-start justify-end gap-2'>
-                    <p>{e.price1 && e.price1}</p>
-                    <p>{e.price2 && e.price2}</p>
+                    {e.price1 && <p>${e.price1}</p>}
+                    {e.price2 && <p>${e.price2}</p>}
                   </div>
                 </div>
               ))
@@ -98,7 +101,7 @@ const BebidasAlcohol = () =>
           {
             tragosAperitivos && tragosAperitivos.map((e) => (
               <CardProduct
-                name={e.name}
+                name={funcCapitalize(e.name)}
                 price={e.price1}
                 description=""
               />

@@ -3,6 +3,7 @@ import CardProduct from "./CardProduct";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getBebidas } from "../redux/thunks";
+import funcCapitalize from "../utils/capitalizeFirstLatter";
 
 const Bebidas = () =>
 {
@@ -30,9 +31,9 @@ const Bebidas = () =>
             {
               licuados && licuados.map((e) => (
                 <CardProduct
-                  name={e.name}
+                  name={funcCapitalize(e.name)}
                   price={e.price1}
-                  description=""
+                  description={e.description || ""}
                 />
 
               ))
@@ -52,12 +53,12 @@ const Bebidas = () =>
               jugos && jugos.map((e) => (
                 <div className='w-full flex items-start justify-between gap-1'>
                   <div className='w-[60%]'>
-                    <p>{e.name && e.name}</p>
+                    <p>{e.name && funcCapitalize(e.name)}</p>
                     <p className='text-[0.6rem] italic'>({e.description && e.description})</p>
                   </div>
                   <div className='w-[40%] flex items-start justify-end gap-2'>
-                    <p>{e.price1 && e.price1}</p>
-                    <p>{e.price2 && e.price2}</p>
+                    <p>${e.price1 && e.price1}</p>
+                    <p>${e.price2 && e.price2}</p>
                   </div>
                 </div>
               ))
@@ -82,10 +83,10 @@ const Bebidas = () =>
           {
             refrescos && refrescos.map((e) => (
               <div className='flex border items-center justify-between'>
-                <p>{e.name && e.name}</p>
+                {e.name && <p>{funcCapitalize(e.name)}</p>}
                 <div className='border flex gap-1'>
-                  <p>{e.price1 && e.price1}</p>
-                  <p>{e.price2 && e.price2}</p>
+                {e.price1 && <p>${e.price1}</p>}
+                {e.price2 && <p>${e.price2}</p>}
                 </div>
               </div>
 

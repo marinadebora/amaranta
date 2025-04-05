@@ -4,7 +4,6 @@ import {  useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getCafeteria } from '../redux/thunks';
 
-
 const Cafe = () =>
 {
  const {cafeteria} = useSelector(state => state.carta);
@@ -35,7 +34,7 @@ const Cafe = () =>
                 <CardProduct
                   name={e.name}
                   price={e.price}
-                  description=""
+                  description={e.description || ""}
                 />
 
               ))
@@ -53,7 +52,7 @@ const Cafe = () =>
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
-                  descripcion=""
+                  description={e.description || ""}
                 />
 
               ))
@@ -73,7 +72,7 @@ const Cafe = () =>
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
-                  descripcion=""
+                  description={e.description || ""}
                 />
 
               ))
@@ -92,7 +91,7 @@ const Cafe = () =>
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
-                  descripcion=""
+                  description={e.description || ""}
                 />
 
               ))

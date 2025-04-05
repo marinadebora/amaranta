@@ -31,7 +31,7 @@ const EnsaladasGuarniciones = () => {
                    <CardProduct
                      name={e.name}
                      price={e.price}
-                     description=""
+                     description={e.description || ""}
                    />
    
                  ))
@@ -49,7 +49,7 @@ const EnsaladasGuarniciones = () => {
                  <CardProduct
                    name={e.name}
                    price={e.price}
-                   description=""
+                   description={e.description || ""}
                  />
    
                ))

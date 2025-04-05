@@ -33,7 +33,7 @@ const Pasteleria = () =>
                 <CardProduct
                   name={e.name}
                   price={e.price}
-                  description=""
+                  description={e.description || ""}
                 />
 
               ))
@@ -50,7 +50,7 @@ const Pasteleria = () =>
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
-                  descripcion=""
+                  description={e.description || ""}
                 />
 
               ))
@@ -70,7 +70,7 @@ const Pasteleria = () =>
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
-                  descripcion=""
+                  description={e.description || ""}
                 />
 
               ))
@@ -87,7 +87,7 @@ const Pasteleria = () =>
                 <CardProduct
                   nombre={e.nombre}
                   precio={e.precio}
-                  descripcion=""
+                  description={e.description || ""}
                 />
               ))
             }

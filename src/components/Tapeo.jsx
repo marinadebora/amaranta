@@ -3,18 +3,20 @@ import CardProduct from './CardProduct';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getTapeo } from '../redux/thunks';
+
+
 const Tapeo = () =>
 {
-const {tapeo} = useSelector(state => state.carta);
-const dispatch = useDispatch();
+  const { tapeo } = useSelector(state => state.carta);
+  const dispatch = useDispatch();
   useEffect(() =>
   {
     dispatch(getTapeo())
   }, [dispatch]);
 
-  let picadasCalientes = tapeo?.filter(e => e.section === "picadas"&&e.name === "hot" );
+  let picadasCalientes = tapeo?.filter(e => e.section === "picadas" && e.name === "hot");
   let picadasClasicas = tapeo?.filter(e => e.section === "picadas" && e.name === "classics");
-  let tapeos = tapeo?.filter(e => e.section === "picadas" && e.name !== "classics"&& e.name !== "hot" );
+  let tapeos = tapeo?.filter(e => e.section === "tapeo" );
   return (
     <div className=" w-full h-[94%]" >
       <div className="h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
@@ -26,48 +28,45 @@ const dispatch = useDispatch();
               <h1 className="text-sm">PICADAS</h1>
             </div>
             <div>
-            <p className='text-sm'>Calientes</p>
-           {
-              picadasCalientes&&picadasCalientes.map(e=>(
-                 <div className='flex flex-col gap-4'>
-                <p>({e.description})</p>
-                <div className='flex w-full items-center justify-between'>
-                  <p>Para 2</p>
-                  <p>{e.price1}</p>
+              <p className='text-sm'>Calientes</p>
+              {
+                picadasCalientes && picadasCalientes.map(e => (
+                  <div className='flex flex-col gap-4'>
+                    {e.description && <p>({e.description})</p>}
+                    <div className='flex w-full items-center justify-between'>
+                      <p>Para 2</p>
+                      {e.price1 && <p>${e.price1}</p>}
+                    </div>
+                    <div className='flex w-full items-center justify-between'>
+                      <p>Para 4</p>
+                      {e.price2 && <p>${e.price2}</p>}
+                    </div>
                   </div>
-                  <div className='flex w-full items-center justify-between'>
-                  <p>Para 4</p>
-                  <p>{e.price2}</p>
-                  </div>
-               </div>
                 ))
-            
-            } 
+
+              }
             </div>
 
             <div>
-            <p className='text-sm'>Clasicas</p>
-            {
-              picadasClasicas&&picadasClasicas.map(e=>(
-                 <div className='flex flex-col gap-4'>
-                <p>({e.description})</p>
-                <div className='flex w-full items-center justify-between'>
-                  <p>Para 2</p>
-                  <p>{e.price1}</p>
+              <p className='text-sm'>Clasicas</p>
+              {
+                picadasClasicas && picadasClasicas.map(e => (
+                  <div className='flex flex-col gap-4'>
+                  {e.description && <p>({e.description})</p>}
+                  <div className='flex w-full items-center justify-between'>
+                    <p>Para 2</p>
+                    {e.price1 && <p>${e.price1}</p>}
                   </div>
                   <div className='flex w-full items-center justify-between'>
-                  <p>Para 4</p>
-                  <p>{e.price2}</p>
+                    <p>Para 4</p>
+                    {e.price2 && <p>${e.price2}</p>}
                   </div>
-               </div>
+                  </div>
                 ))
-            
-            } 
-            </div>
-          
-        
-          </div>
 
+              }
+            </div>
+          </div>
         </div>
 
         <div className='flex flex-col gap-4'>
@@ -86,7 +85,7 @@ const dispatch = useDispatch();
                 />
 
               ))
-            }{ 
+            }{
 
             }
           </div>
