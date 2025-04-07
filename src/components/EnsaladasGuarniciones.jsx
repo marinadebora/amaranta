@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getEnsaladasGuarniciones } from "../redux/thunks";
 
-const EnsaladasGuarniciones = () => {
+const EnsaladasGuarniciones = () =>
+{
   const { ensaladasGuarniciones } = useSelector(state => state.carta);
   const dispatch = useDispatch()
 
@@ -18,45 +19,52 @@ const EnsaladasGuarniciones = () => {
   let guarniciones = ensaladasGuarniciones.filter(e => e.section === "guarniciones");
 
   return (
-     <div className=" w-full h-[94%]" >
-         <div className="h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
-           <div className='flex flex-col gap-10'>
-             <div className=''>
-               <div className='flex items-start gap-2 h-full'>
-                 <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
-                 <h1 className="text-sm">ENSALADAS</h1>
-               </div>
-               {
-                 ensaladas && ensaladas.map((e) => (
-                   <CardProduct
-                     name={e.name}
-                     price={e.price}
-                     description={e.description || ""}
-                   />
-   
-                 ))
-               }
-             </div>
-   
-           </div>
-           <div className=''>
-             <div className='flex items-start gap-2 h-full'>
-               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
-               <h1 className="text-sm">GUARNICIONES</h1>
-             </div>
-             {
-               guarniciones && guarniciones.map((e) => (
-                 <CardProduct
-                   name={e.name}
-                   price={e.price}
-                   description={e.description || ""}
-                 />
-   
-               ))
-             }
-           </div>
-         </div>
-       </div>
+    <div className=" w-full h-[94%] mt-2" >
+      <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
+
+        <div className='flex flex-col gap-2 px-2'>
+          <>
+            <div className='flex items-center gap-1'>
+              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
+              <h1 className="text-sm">ENSALADAS</h1>
+            </div>
+            <div className='py-2'>
+              {
+                ensaladas && ensaladas.map((e) => (
+                  <CardProduct
+                    name={e.name}
+                    price={e.price}
+                    description={e.description || ""}
+                  />
+
+                ))
+              }
+            </div>
+          </>
+        </div>
+
+        <div className='flex flex-col gap-2 px-2'>
+          <>
+            <div className='flex items-center gap-1'>
+              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
+              <h1 className="text-sm">GUARNICIONES</h1>
+            </div>
+            <div className='py-2'>
+              {
+                guarniciones && guarniciones.map((e) => (
+                  <CardProduct
+                    name={e.name}
+                    price={e.price}
+                    description={e.description || ""}
+                  />
+
+                ))
+              }
+            </div>
+          </>
+        </div>
+      </div>
+    </div>
   );
 };
 

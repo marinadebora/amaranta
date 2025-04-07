@@ -15,19 +15,20 @@ const AlPlato = () =>
   }, [dispatch]);
 
 
-  let pastas = alPlato.filter(e => e.section === "pastas" && e.name !== "Sorrentinos");
-  let sorrentinos = alPlato.filter(e => e.section === "pastas" && e.name === "Sorrentinos");
+  let pastas = alPlato.filter(e => e.section === "pastas" && e.subSection !== "sorrentinos");
+  let sorrentinos = alPlato.filter(e => e.section === "pastas" && e.subSection === "sorrentinos");
   let carnesYPollos = alPlato.filter(e => e.section === "carnes y pollos");
   return (
-    <div className=" w-full h-[94%] px-2" >
-      <div className="h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
-        <div className='flex flex-col gap-10'>
-          <div className=''>
-            <div className='flex items-center gap-2'>
-              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">PASTAS</h1>
-            </div>
-            <div className='py-2'>
+    <div className=" w-full h-[94%] mt-2" >
+      <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
+
+        <div className='flex flex-col gap-2 px-2'>
+          <>
+          <div className='flex items-center gap-1'>
+            <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
+            <h1 className="text-sm">PASTAS</h1>
+          </div>
+          <div className='py-2'>
             {
               pastas && pastas.map((e) => (
                 <CardProduct
@@ -38,42 +39,43 @@ const AlPlato = () =>
 
               ))
             }
-            
-              <p>Sorrentinos</p>
+
+            <p className='py-1'>Sorrentinos</p>
             {
               sorrentinos && sorrentinos.map((e) => (
-                  <div className='w-full flex'>
-                   <div className='w-[90%] flex justify-between pl-1.5'>
-                   {e.description && <p>{e.description}</p>}
-                   </div>
-                     <div>{e.price && <p>${e.price}</p>}</div>
-                  
-                   </div>
-
+                <CardProduct
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
+                />
               ))
             }
-          
+
           </div>
-          </div>
+          </>
         </div>
-         <div className=''>
-          <div className='flex items-center gap-2'>
+
+        <div className='flex flex-col gap-2 px-2'>
+          <>
+          <div className='flex items-center gap-1'>
             <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
             <h1 className="text-sm">CARNES Y POLLOS</h1>
           </div>
           <div className='py-2'>
-          {
-            carnesYPollos && carnesYPollos.map((e) => (
-              <CardProduct
-                name={e.name}
-                price={e.price}
-                description={e.description || ""}
-              />
+            {
+              carnesYPollos && carnesYPollos.map((e) => (
+                <CardProduct
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
+                />
 
-            ))
-          }
+              ))
+            }
           </div>
-        </div> 
+          </>
+        </div>
+        
       </div>
     </div>
   );

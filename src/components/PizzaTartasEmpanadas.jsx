@@ -19,70 +19,71 @@ const PizzaTartasEmpanadas = () =>
   let empanadas = pizzaTartasEmpanadas.filter(e => e.section === "empanadas");
 
   return (
-    <div className=" w-full h-[94%]" >
-         <div className="h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
-           <div className='flex flex-col gap-10'>
-   
-             <div className=''>
-               <div className='flex items-start gap-2 h-full'>
-               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
-               <h1 className="text-sm">PIZZAS</h1>
-               </div>
-               {
-                 pizzas && pizzas.map((e)=> (
-                   <CardProduct
-                     name={e.name}
-                     price={e.price}
-                     description={e.description || ""}
-                   />
-   
-                 ))
-               }
-             </div>
-   
-            
-             <div className=''>
-             <div className='flex items-start gap-2 h-full'>
-               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
-               <h1 className="text-sm ">TARTAS</h1>
-               </div>
-               {
-                 tartas && tartas.map(e => (
-                   <CardProduct
-                     nombre={e.nombre}
-                     precio={e.precio}
-                     description={e.description || ""}
-                   />
-   
-                 ))
-               }
-             </div>
-           </div>
+    <div className=" w-full h-[94%] mt-2" >
+      <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
 
+        <div className='flex flex-col gap-2 px-2'>
+          <>
+            <div className='flex items-center gap-1'>
+              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
+              <h1 className="text-sm">PIZZAS</h1>
+            </div>
+            <div className='py-2'>
+              {
+                pizzas && pizzas.map((e) => (
+                  <CardProduct
+                    name={e.name}
+                    price={e.price}
+                    description={e.description || ""}
+                  />
 
-           <div className='flex flex-col gap-4'>
+                ))
+              }
+            </div>
+          </>
+          <>
+            <div className='flex items-center gap-1'>
+              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
+              <h1 className="text-sm ">TARTAS</h1>
+            </div>
+            <div className='py-2'>
+              {
+                tartas && tartas.map(e => (
+                  <CardProduct
+                    nombre={e.nombre}
+                    precio={e.precio}
+                    description={e.description || ""}
+                  />
 
-             <div className="">
-             <div className='flex items-start gap-2 h-full'>
-               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
-               <h1 className="text-sm">INFUSIONES</h1>
-               </div>
-               {
-                 empanadas && empanadas.map(e => (
-                   <CardProduct
-                     nombre={e.nombre}
-                     precio={e.precio}
-                     description={e.description || ""}
-                   />
-   
-                 ))
-               }
-             </div>
-   
-           </div>
-           
-         </div>
-       </div>
+                ))
+              }
+            </div>
+          </>
+        </div>
+
+        <div className='flex flex-col gap-2 px-2'>
+          <>
+            <div className='flex items-start gap-2 h-full'>
+              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
+              <h1 className="text-sm">INFUSIONES</h1>
+            </div>
+            <div className="py-2">
+              {
+                empanadas && empanadas.map(e => (
+                  <CardProduct
+                    nombre={e.nombre}
+                    precio={e.precio}
+                    description={e.description || ""}
+                  />
+
+                ))
+              }
+            </div>
+          </>
+        </div>
+
+      </div>
+    </div>
   );
 };
 
