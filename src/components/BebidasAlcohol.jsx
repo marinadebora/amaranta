@@ -30,7 +30,8 @@ const BebidasAlcohol = () =>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
               <h1 className="text-xs">VINOS</h1>
             </div>
-            <div className='py-1'>
+            <div className='py-1 flex flex-col gap-2'>
+              <div>
               <p className='italic text-[0.7rem] pb-1'>Bodega Vinos de Potrero</p>
               {
                 vinosPotreo && vinosPotreo.map((e) => (
@@ -43,6 +44,8 @@ const BebidasAlcohol = () =>
 
                 ))
               }
+              </div>
+              <div>
               {
                 vinos && vinos.map((e) => (
                     <CardProduct
@@ -53,6 +56,7 @@ const BebidasAlcohol = () =>
                  
                 ))
               }
+              </div>
             </div>
           </>
           <>
