@@ -82,9 +82,9 @@ const Tapeo = () =>
             {
               tapeos && tapeos.map((e) => (
                 <CardProduct
-                  name={e.name}
-                  price={e.price1}
-                  description={e.description}
+                name={e.name}
+                price={e.price1}
+                description={e.description || ""}
                 />
 
               ))

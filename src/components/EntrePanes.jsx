@@ -22,7 +22,7 @@ const EntrePanes = () =>
 
   return (
     <div className=" w-full h-[94%] mt-2" >
-      <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
+      <div className="w-full h-[80%] grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
 
         <div className='flex flex-col gap-2 px-2'>
           <>
@@ -48,10 +48,10 @@ const EntrePanes = () =>
           <>
             <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">HAMBUERGUESAS</h1>
+              <h1 className="text-sm ">HAMBUERGUESAS</h1>
             </div>
             <div className='py-2'>
-              <p>CARNE</p>
+              <p className='text-sm'>CARNE</p>
               {
                 hamburguesasCarne && hamburguesasCarne.map((e) => (
                   <CardProduct
@@ -62,7 +62,7 @@ const EntrePanes = () =>
 
                 ))
               }
-              <p>POLLO</p>
+              <p className='text-sm'>POLLO</p>
               {
                 hamburguesasPollo && hamburguesasPollo.map((e) => (
                   <CardProduct
@@ -73,7 +73,7 @@ const EntrePanes = () =>
 
                 ))
               }
-              <p>OPCIONAL</p>
+              <p>OPCIÓN VEGGIE</p>
               {
                 opcional && opcional.map((e) => (
                   <CardProduct

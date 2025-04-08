@@ -33,7 +33,7 @@ const Bebidas = () =>
               {
                 licuados && licuados.map((e) => (
                   <CardProduct
-                    name={funcCapitalize(e.name)}
+                    name={e.name}
                     price={e.price1}
                     description={e.description || ""}
                   />
@@ -56,12 +56,12 @@ const Bebidas = () =>
               jugos && jugos.map((e) => (
                 <div className='w-full flex items-start justify-between gap-1'>
                   <div className='w-[60%]'>
-                    <p>{e.name && funcCapitalize(e.name)}</p>
-                    <p className='text-[0.6rem] italic'>({e.description && e.description})</p>
+                    {e.name && <p className='w-[80%] text-xs'>{funcCapitalize(e.name)}</p>}
+                    {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}
                   </div>
                   <div className='w-[40%] flex items-start justify-end gap-2'>
-                    <p>${e.price1 && e.price1}</p>
-                    <p>${e.price2 && e.price2}</p>
+                    {e.price1 &&<p>{e.price1}</p> }
+                    {e.price2 &&<p>{e.price2}</p> }
                   </div>
                 </div>
               ))
@@ -69,7 +69,7 @@ const Bebidas = () =>
           </div>
         </div>
 
-        <div className='flex flex-col gap-2 px-2'>
+        <div className='flex flex-col gap-2 px-2 border'>
           <>
             <div className='flex items-center justify-between'>
               <div className='flex items-center gap-1'>
@@ -83,7 +83,7 @@ const Bebidas = () =>
             </div>
             {
               refrescos && refrescos.map((e) => (
-                <div className='flex border items-center justify-between'>
+                <div className='flex items-center justify-between border'>
                   {e.name && <p className='text-xs'>{funcCapitalize(e.name)}</p>}
                   <div className='flex gap-1'>
                     {e.price1 && <p className='text-xs md:w-[2.5rem] flex justify-end'>${e.price1}</p>}

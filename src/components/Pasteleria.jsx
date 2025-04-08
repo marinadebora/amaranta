@@ -43,17 +43,17 @@ const Pasteleria = () =>
             </div>
           </>
           <>
-            <div className='flex items-start gap-2 h-full'>
-              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
+          <div className='flex items-center gap-1'>
+              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
               <h1 className="text-sm ">BUDINES</h1>
             </div>
             <div className='py-2'>
               {
                 budines && budines.map(e => (
                   <CardProduct
-                    nombre={e.nombre}
-                    precio={e.precio}
-                    description={e.description || ""}
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
                   />
 
                 ))
@@ -64,18 +64,18 @@ const Pasteleria = () =>
         </div>
 
         <div className='flex flex-col gap-2 px-2'>
-          <>
-            <div className='flex items-start gap-2 h-full'>
-              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
+        <>
+          <div className='flex items-center gap-1'>
+              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
               <h1 className="text-sm">BOWLS SALUDABLES</h1>
             </div>
             <div className='py-2'>
               {
                 bowlsSaludables && bowlsSaludables.map(e => (
                   <CardProduct
-                    nombre={e.nombre}
-                    precio={e.precio}
-                    description={e.description || ""}
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
                   />
 
                 ))
@@ -83,17 +83,17 @@ const Pasteleria = () =>
             </div>
           </>
           <>
-            <div className='flex items-start gap-2 h-full'>
-              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6] mt-1'></div>
+          <div className='flex items-center gap-1'>
+              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
               <h1 className="text-sm">TOSTADOSS</h1>
             </div>
             <div className="py-2">
               {
                 tostados && tostados.map(e => (
                   <CardProduct
-                    nombre={e.nombre}
-                    precio={e.precio}
-                    description={e.description || ""}
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
                   />
                 ))
               }

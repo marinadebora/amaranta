@@ -14,12 +14,13 @@ const Cafe = () =>
     dispatch(getCafeteria())
 
   }, [dispatch]);
+  console.log(cafeteria)
 
-  let frio = cafeteria.filter(e => e.section === "cold");
-  let especialidad = cafeteria.filter(e => e.section === "specialty");
-  let clasico = cafeteria.filter(e => e.section === "classics");
-  let infusiones = cafeteria.filter(e => e.section === "infusions");
-
+  let frio = cafeteria?.filter(e => e.section === "cold");
+  let especialidad = cafeteria?.filter(e => e.section === "specialty");
+  let clasico = cafeteria?.filter(e => e.section === "classics");
+  let infusiones = cafeteria?.filter(e => e.section === "infusions");
+  console.log(infusiones)
   return (
     <div className=" w-full h-[94%] mt-2" >
       <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
@@ -52,9 +53,9 @@ const Cafe = () =>
               {
                 clasico && clasico.map(e => (
                   <CardProduct
-                    nombre={e.nombre}
-                    precio={e.precio}
-                    description={e.description || ""}
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
                   />
 
                 ))
@@ -75,9 +76,9 @@ const Cafe = () =>
                 {
                   frio.map(e => (
                     <CardProduct
-                      nombre={e.nombre}
-                      precio={e.precio}
-                      description={e.description || ""}
+                    name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
                     />
 
                   ))
@@ -90,16 +91,18 @@ const Cafe = () =>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
               <h1 className="text-sm">INFUSIONES</h1>
             </div>
+            <div className='py-2'>
             {
               infusiones && infusiones.map(e => (
                 <CardProduct
-                  nombre={e.nombre}
-                  precio={e.precio}
-                  description={e.description || ""}
+                name={e.name}
+                price={e.price}
+                description={e.description || ""}
                 />
 
               ))
             }
+            </div>
           </>
 
         </div>

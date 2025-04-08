@@ -7,12 +7,12 @@ const CardProduct = ({ name, price, description }) =>
   return (
     <div className='w-full flex flex-col'>
       <div className='w-full flex justify-between'>
-        <div>{name && <p>{funcCapitalize(name)}</p>}</div>
-        <div>{price && <p>${price}</p>}</div>
+        {name && <p className='w-[80%] text-xs'>{funcCapitalize(name)}</p>}
+        {price && <p className='w-[20%]'>${price}</p>}
       </div>
-      <div className='w-[90%]'>
-        {description && <p>({description})</p>}
-      </div>
+    
+        {description && <p className='w-[80%] text-xs font-extralight italic'>({description})</p>}
+     
     </div>
   );
 };
