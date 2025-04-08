@@ -15,20 +15,20 @@ const AlPlato = () =>
   }, [dispatch]);
 
 
-  let pastas = alPlato.filter(e => e.section === "pastas" && e.subSection !== "sorrentinos");
-  let sorrentinos = alPlato.filter(e => e.section === "pastas" && e.subSection === "sorrentinos");
-  let carnesYPollos = alPlato.filter(e => e.section === "carnes y pollos");
+  let pastas = alPlato?.filter(e => e.section === "pastas" && e.subSection !== "sorrentinos");
+  let sorrentinos = alPlato?.filter(e => e.section === "pastas" && e.subSection === "sorrentinos");
+  let carnesYPollos = alPlato?.filter(e => e.section === "carnes y pollos");
   return (
-    <div className=" w-full h-[94%] mt-2" >
+    <div className=" w-full h-[80%] mt-2" >
       <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
 
         <div className='flex flex-col gap-2 px-2'>
           <>
           <div className='flex items-center gap-1'>
             <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-            <h1 className="text-sm">PASTAS</h1>
+            <h1 className="text-xs">PASTAS</h1>
           </div>
-          <div className='py-2'>
+          <div className='py-1'>
             {
               pastas && pastas.map((e) => (
                 <CardProduct
@@ -55,13 +55,13 @@ const AlPlato = () =>
           </>
         </div>
 
-        <div className='flex flex-col gap-2 px-2'>
+        <div className='flex flex-col gap-2 px-2 pt-25 md:pt-12'>
           <>
           <div className='flex items-center gap-1'>
             <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-            <h1 className="text-sm">CARNES Y POLLOS</h1>
+            <h1 className="text-xs">CARNES Y POLLOS</h1>
           </div>
-          <div className='py-2'>
+          <div className='py-1'>
             {
               carnesYPollos && carnesYPollos.map((e) => (
                 <CardProduct

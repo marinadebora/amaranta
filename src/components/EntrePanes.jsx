@@ -28,9 +28,9 @@ const EntrePanes = () =>
           <>
             <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">SANDWICHES</h1>
+              <h1 className="text-xs">SANDWICHES</h1>
             </div>
-            <div className='py-2'>
+            <div className='py-1'>
               {
                 sandwiches && sandwiches.map((e) => (
                   <CardProduct
@@ -44,36 +44,41 @@ const EntrePanes = () =>
             </div>
           </>
         </div>
-        <div className='flex flex-col gap-2 px-2'>
+        <div className='flex flex-col gap-2 px-2 pt-20 md:pt-10'>
           <>
             <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm ">HAMBUERGUESAS</h1>
+              <h1 className="text-xs ">HAMBUERGUESAS</h1>
             </div>
-            <div className='py-2'>
-              <p className='text-sm'>CARNE</p>
+            <div className='flex flex-col gap-2'>
+            <div className=''>
+              <p className='text-[0.7rem] mb-1'>CARNE</p>
               {
                 hamburguesasCarne && hamburguesasCarne.map((e) => (
                   <CardProduct
-                    name={e.name}
-                    price={e.price}
-                    description={e.description || ""}
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
                   />
-
+                  
                 ))
               }
-              <p className='text-sm'>POLLO</p>
+              </div>
+              <div className=''>
+              <p className='text-[0.7rem] mb-1'>POLLO</p>
               {
                 hamburguesasPollo && hamburguesasPollo.map((e) => (
                   <CardProduct
-                    name={e.name}
-                    price={e.price}
-                    description={e.description || ""}
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
                   />
-
+                  
                 ))
               }
-              <p>OPCIÓN VEGGIE</p>
+              </div>
+              <div>
+              <p className='text-[0.7rem] mb-1'>OPCIÓN VEGGIE</p>
               {
                 opcional && opcional.map((e) => (
                   <CardProduct
@@ -84,7 +89,8 @@ const EntrePanes = () =>
 
                 ))
               }
-            </div>
+              </div>
+              </div>
           </>
         </div>
       </div>

@@ -23,9 +23,9 @@ const Postres = () =>
           <>
             <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">POSTRES</h1>
+              <h1 className="text-xs">POSTRES</h1>
             </div>
-            <div className='py-2'>
+            <div className='py-1'>
               {
                 postres && postres.map((e) => (
                   <CardProduct

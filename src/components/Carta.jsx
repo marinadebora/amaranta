@@ -3,7 +3,6 @@ import "../index.css"
 import Cafe from "./Cafe";
 import Pasteleria from "./Pasteleria";
 import AlPlato from "./AlPlato";
-import image from '../Images'
 import Tapeo from "./Tapeo";
 import PizzaTartasEmpanadas from "./PizzaTartasEmpanadas";
 import EntrePanes from "./EntrePanes";
@@ -11,12 +10,12 @@ import EnsaladasGuarniciones from "./EnsaladasGuarniciones";
 import Postres from "./Postres";
 import Bebidas from "./Bebidas";
 import BebidasAlcohol from "./BebidasAlcohol";
+import  imagenes  from "../Images";
 
 const Carta = () =>
 {
   const [page, setPage] = useState(0);
-  const backgrounds = ["", image.Coffee, image.pastries, "", image.pizza, image.hamburgers, "", image.menus, image.desserts, image.drinks, ""];
-  const currentPage = page % backgrounds.length;
+  const currentPage = page % imagenes.length;
   const nextPage = () =>
   {
     if(page === 10){
@@ -49,14 +48,14 @@ const Carta = () =>
 
 
   return (
-    <main className="flex flex-grow items-center justify-center ">
+    <main className="flex flex-grow items-center justify-center " >
 
       {
         page === 0 ?
-          <div className=" w-[90%] h-[90vh] flex flex-col items-center justify-between">
+          <div  key={page} className=" w-[90%] h-[70vh] flex flex-col items-center justify-center shadow-2xl "style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
 
-            <div className="w-full h-full  flex flex-col  items-center justify-center text-[#fcf2f2]">
-              <h1 className="text-3xl">AMARANTA</h1>
+            <div className="w-full h-[80%] flex flex-col  items-center justify-start text-[#fcf2f2] ">
+              <h1 className="text-[3.5rem]">AMARANTA</h1>
               <h2 className="text-sm">CAFE RESTO</h2>
             </div>
 
@@ -69,10 +68,10 @@ const Carta = () =>
           </div> :
 
 
-          <div className=" w-full  h-[85vh] flex flex-col items-center justify-center" >
-            <div className=" bg-[#fcf2f0] w-[90%] md:w-[50%] h-full flex flex-col  " style={{ backgroundImage: `url(${backgrounds[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+          <div key="carta" className=" w-full h-[70vh] md:h-[85vh] flex flex-col items-center justify-center" >
+            <div className=" bg-[#fcf2f0] w-[90%] md:w-[50%] h-full flex flex-col  " style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
 
-              <div className="w-full flex flex-col items-center mt-3 text-[#f0d1ce]">
+              <div className="w-full flex flex-col items-center mt-6 text-[#f0d1ce]">
                 <h1 className="text-2xl ">AMARANTA</h1>
                 <h2 className="text-sm">CAFE RESTO</h2>
               </div>
@@ -81,45 +80,45 @@ const Carta = () =>
 
                 {
                   page === 1 &&
-                  <Cafe />
+                 <div key={page}><Cafe /></div> 
                 }
                 {
                   page === 2 &&
-                  <Pasteleria />
+                  <div key={page}> <Pasteleria /></div>
                 }
                 {
                   page === 3 &&
-                  <Tapeo />
+                  <div key={page}><Tapeo /></div>
                 }
                 {
                   page === 4 &&
-                  <PizzaTartasEmpanadas />
+                  <div key={page}><PizzaTartasEmpanadas /></div>
                 }
 
                 {
                   page === 5 &&
-                  <EntrePanes />
+                  <div key={page}><EntrePanes /></div>
                 }
                 {
                   page === 6 &&
-                  <EnsaladasGuarniciones />
+                  <div key={page}><EnsaladasGuarniciones /></div>
                 }
 
                 {
                   page === 7 &&
-                  <AlPlato />
+                  <div key={page}> <AlPlato /></div>
                 }
                 {
                   page === 8 &&
-                  <Postres />
+                  <div key={page}><Postres /></div>
                 }
                 {
                   page === 9 &&
-                  <Bebidas />
+                  <div key={page}> <Bebidas /></div>
                 }
                 {
                   page === 10 &&
-                  <BebidasAlcohol />
+                  <div key={page}><BebidasAlcohol /></div>
                 }
               </div>
 

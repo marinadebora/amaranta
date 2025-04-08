@@ -26,9 +26,9 @@ const PizzaTartasEmpanadas = () =>
           <>
             <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">PIZZAS</h1>
+              <h1 className="text-xs">PIZZAS</h1>
             </div>
-            <div className='py-2'>
+            <div className='py-1'>
               {
                 pizzas && pizzas.map((e) => (
                   <CardProduct
@@ -44,9 +44,9 @@ const PizzaTartasEmpanadas = () =>
           <>
             <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm ">TARTAS individuales</h1>
+              <h1 className="text-xs ">TARTAS</h1><p className='text-[0.6rem] font-extralight italic'>individuales</p>
             </div>
-            <div className='py-2'>
+            <div className='py-1'>
               {
                 tartas && tartas.map(e => (
                   <CardProduct
@@ -61,13 +61,13 @@ const PizzaTartasEmpanadas = () =>
           </>
         </div>
 
-        <div className='flex flex-col gap-2 px-2'>
+        <div className='flex flex-col gap-2 px-2 pt-20 md:pt-10'>
         <>
           <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">EMPANADAS</h1>
+              <h1 className="text-xs">EMPANADAS</h1>
             </div>
-            <div className="py-2">
+            <div className="py-1">
               {
                 empanadas && empanadas.map(e => (
                   <CardProduct

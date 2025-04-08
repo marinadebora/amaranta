@@ -19,17 +19,17 @@ const Pasteleria = () =>
   let tostados = pasteleria?.filter(e => e.section === "toasted");
 
   return (
-    <div className=" w-full h-[94%] mt-2" >
+    <div className=" w-full h-[80%] mt-2" >
       <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
 
         <div className='flex flex-col gap-2 px-2'>
           <>
             <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">TORTAS</h1>
+              <h1 className="text-xs">TORTAS</h1>
             </div>
 
-            <div className='py-2'>
+            <div className='py-1'>
               {
                 tortas.length > 0 && tortas.map((e) => (
                   <CardProduct
@@ -45,9 +45,9 @@ const Pasteleria = () =>
           <>
           <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm ">BUDINES</h1>
+              <h1 className="text-xs ">BUDINES</h1>
             </div>
-            <div className='py-2'>
+            <div className='py-1'>
               {
                 budines && budines.map(e => (
                   <CardProduct
@@ -63,13 +63,13 @@ const Pasteleria = () =>
 
         </div>
 
-        <div className='flex flex-col gap-2 px-2'>
+        <div className='flex flex-col gap-2 px-2 pt-28 md:pt-15'>
         <>
           <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">BOWLS SALUDABLES</h1>
+              <h1 className="text-xs">BOWLS NATURAL</h1>
             </div>
-            <div className='py-2'>
+            <div className='py-1'>
               {
                 bowlsSaludables && bowlsSaludables.map(e => (
                   <CardProduct
@@ -85,9 +85,9 @@ const Pasteleria = () =>
           <>
           <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-sm">TOSTADOSS</h1>
+              <h1 className="text-xs">TOSTADOS</h1>
             </div>
-            <div className="py-2">
+            <div className="py-1">
               {
                 tostados && tostados.map(e => (
                   <CardProduct
