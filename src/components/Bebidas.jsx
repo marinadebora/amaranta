@@ -34,7 +34,7 @@ const Bebidas = () =>
                 licuados && licuados.map((e) => (
                   <CardProduct
                     name={e.name}
-                    price={e.price1}
+                    price={e.price}
                     description={e.description || ""}
                   />
 
@@ -42,15 +42,15 @@ const Bebidas = () =>
               }
             </div>
           </>
-          
+
           <div className='flex flex-col'>
             <div className='w-full flex items-center justify-center'>
               <div className=' w-[60%]'>
                 <p className='text-[0.7rem]'>Jugos</p>
               </div>
-              <div className='w-[40%] flex items-center justify-end gap-1'>
-                <p className='text-[0.7rem]'>Jarra</p>
-                <p className='text-[0.7rem]'>Vaso</p>
+              <div className='w-[40%] flex items-center justify-end gap-2'>
+                <p className='w-[1.6rem] text-end text-[0.7rem]'>Jarra</p>
+                <p className='w-[1.6rem] text-end text-[0.7rem]'>Vaso</p>
               </div>
             </div>
             {
@@ -61,8 +61,8 @@ const Bebidas = () =>
                     {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}
                   </div>
                   <div className='w-[40%] flex items-start justify-end gap-2'>
-                    {e.price1 &&<p className='text-[0.6rem]'>{e.price1}</p> }
-                    {e.price2 &&<p className='text-[0.6rem]'>{e.price2}</p> }
+                    {e.price && e.price !== "0" && <p className='text-[0.6rem]'>${e.price}</p>}
+                    {e.price2 && e.price2!=="0"? <p className='text-[0.6rem]'>${e.price2}</p>:<p className='w-[1.6rem]'></p>}
                   </div>
                 </div>
               ))
@@ -83,22 +83,22 @@ const Bebidas = () =>
               </div>
             </div>
             <div className='py-1'>
-            {
-              refrescos && refrescos.map((e) => (
-                <div className='w-full flex items-start justify-between'>
-                  <div className='w-[60%]'>
-                    {e.name && <p className='w-[80%] text-[0.6rem]'>{funcCapitalize(e.name)}</p>}
-                    {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}
+              {
+                refrescos && refrescos.map((e) => (
+                  <div className='w-full flex items-start justify-between'>
+                    <div className='w-[60%]'>
+                      {e.name && <p className='w-[80%] text-[0.6rem]'>{funcCapitalize(e.name)}</p>}
+                      {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}
+                    </div>
+                    <div className='w-[40%] flex items-start justify-end gap-2'>
+                      {e.price && e.price !== "0" && <p className='text-[0.6rem]'>{e.price}</p>}
+                      {e.price2 && e.price2 !== "0" && <p className='text-[0.6rem]'>{e.price2}</p>}
+                    </div>
                   </div>
-                  <div className='w-[40%] flex items-start justify-end gap-2'>
-                    {e.price1 &&<p className='text-[0.6rem]'>{e.price1}</p> }
-                    {e.price2 &&<p className='text-[0.6rem]'>{e.price2}</p> }
-                  </div>
-                </div>
 
-              ))
-            }
-</div>
+                ))
+              }
+            </div>
           </>
         </div>
 

@@ -6,16 +6,16 @@ function App()
 {
   return (
 
-    <div className="min-h-screen flex flex-col justify-between ">
+    <div className="min-h-screen flex flex-col justify-around py-2 ">
+  
       <Routes>
         <Route path='/' element={<Carta />} />
        
       </Routes>
 
 
-      <footer className="bg-[#000] text-white ">
-        fffff
-      </footer>
+   <Footer />
+ 
     </div>
   );
 }

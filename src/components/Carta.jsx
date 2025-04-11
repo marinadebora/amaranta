@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FiArrowLeft , FiArrowRight } from "react-icons/fi";
 import "../index.css"
 import Cafe from "./Cafe";
 import Pasteleria from "./Pasteleria";
@@ -48,11 +49,11 @@ const Carta = () =>
 
 
   return (
-    <main className="flex flex-grow items-center justify-center " >
+    <main className="flex items-center justify-center pt-5 md:pt-0" >
 
       {
         page === 0 ?
-          <div  key={page} className=" w-[90%] h-[70vh] flex flex-col items-center justify-center shadow-2xl "style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+          <div  key={page} className=" w-[90%] h-[70vh] md:w-[30rem] md:h-[35rem] flex flex-col items-center justify-center shadow-2xl "style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
 
             <div className="w-full h-[80%] flex flex-col  items-center justify-start text-[#fcf2f2] ">
               <h1 className="text-[3.5rem]">AMARANTA</h1>
@@ -68,8 +69,9 @@ const Carta = () =>
           </div> :
 
 
-          <div key="carta" className=" w-full h-[70vh] md:h-[85vh] flex flex-col items-center justify-center" >
-            <div className=" bg-[#fcf2f0] w-[90%] md:w-[50%] h-full flex flex-col  " style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+
+          <div key="carta" className="w-full h-[70vh]  md:h-[35rem] md:w-[30rem] shadow-2xl flex flex-col items-center justify-center pt-2" >
+            <div className=" bg-[#fcf2f0] w-[90%] h-full flex flex-col " style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
 
               <div className="w-full flex flex-col items-center mt-6 text-[#f0d1ce]">
                 <h1 className="text-2xl ">AMARANTA</h1>
@@ -124,16 +126,15 @@ const Carta = () =>
 
             </div>
 
-            <div className=" w-full flex items-center justify-center gap-2 my-1 text-2xl text-[#769164] ">
-              <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={previouPage} >←</button>
-              <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:shadow-[#769164] hover:tetxt-[#f2d0c7]" onClick={nextPage}>→</button>
+            <div className=" w-full  flex items-center justify-center gap-2  py-2 text-[#769164]">
+              <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:bg-[#769164] hover:text-[#f2d0c7]" onClick={previouPage} ><FiArrowLeft /></button>{/* <p className="font-extrabold">←</p> */}
+              <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:bg-[#769164] hover:text-[#f2d0c7]" onClick={nextPage}><FiArrowRight /></button>{/* <p className="font-extrabold">→</p> */}
             </div>
 
           </div>
+       
 
       }
-
-
     </main>
   );
 };

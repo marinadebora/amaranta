@@ -35,11 +35,11 @@ const Tapeo = () =>
                     {e.description && <p className=' text-[0.5rem] font-extralight italic'>({e.description})</p>}
                     <div className='flex w-full items-center justify-between '>
                       <p className='text-xs'>Para 2</p>
-                      {e.price1 && <p className='text-xs'>${e.price1}</p>}
+                      {e.price && e.price !== "0" && <p className='text-xs'>${e.price}</p>}
                     </div>
                     <div className='flex w-full items-center justify-between'>
                       <p className='text-xs'>Para 4</p>
-                      {e.price2 && <p className='text-xs'>${e.price2}</p>}
+                      {e.price2 && e.price2 !== "0" &&  <p className='text-xs'>${e.price2}</p>}
                     </div>
                   </div>
                 ))
@@ -56,11 +56,11 @@ const Tapeo = () =>
                   {e.description && <p className=' text-[0.5rem] font-extralight italic'>({e.description})</p>}
                   <div className='flex w-full items-center justify-between'>
                     <p>Para 2</p>
-                    {e.price1 && <p>${e.price1}</p>}
+                    {e.price && e.price !== "0" && <p>${e.price}</p>}
                   </div>
                   <div className='flex w-full items-center justify-between'>
                     <p>Para 4</p>
-                    {e.price2 && <p>${e.price2}</p>}
+                    {e.price2 && e.price2 !== "0" && <p>${e.price2}</p>}
                   </div>
                   </div>
                 ))
@@ -83,7 +83,7 @@ const Tapeo = () =>
               tapeos && tapeos.map((e) => (
                 <CardProduct
                 name={e.name}
-                price={e.price1}
+                price={e.price}
                 description={e.description || ""}
                 />
 

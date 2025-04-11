@@ -38,8 +38,8 @@ const BebidasAlcohol = () =>
 
                   <CardProduct
                     name={e.name}
-                    price={e.price1}
-                    description=""
+                    price={e.price}
+                    description={e.description || ""}
                   />
 
                 ))
@@ -50,7 +50,7 @@ const BebidasAlcohol = () =>
                 vinos && vinos.map((e) => (
                     <CardProduct
                       name={e.name}
-                      price={e.price1}
+                      price={e.price}
                       description={e.description || ""}
                     />
                  
@@ -66,9 +66,9 @@ const BebidasAlcohol = () =>
                   <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
                   <h1 className="text-xs">CERVEZAS</h1>
                 </div>
-                <div className='w-[40%] flex items-center justify-end gap-1'>
-                  <p className='text-[0.7rem]'>Botella</p>
-                  <p className='text-[0.7rem]'>Lata</p>
+                <div className='w-[40%] flex items-center justify-end gap-2'>
+                  <p className=' text-[0.7rem]'>Botella</p>
+                  <p className='w-[1.6rem] text-end text-[0.7rem]'>Lata</p>
                 </div>
               </div>
               <div className='py-1'>
@@ -80,8 +80,8 @@ const BebidasAlcohol = () =>
                         {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}
                       </div>
                       <div className='w-[40%] flex items-start justify-end gap-2'>
-                        {e.price1 && <p className='text-[0.6rem]'>{e.price1}</p>}
-                        {e.price2 && <p className='text-[0.6rem]'>{e.price2}</p>}
+                        {e.price && e.price!=="0" && <p className='text-[0.6rem]'>${e.price}</p>}
+                        {e.price2 && e.price2!=="0"? <p className='text-[0.6rem]'>${e.price2}</p>:<p className='w-[1.6rem]'></p>}
                       </div>
                     </div>
                   ))
@@ -103,8 +103,8 @@ const BebidasAlcohol = () =>
                 tragosAperitivos && tragosAperitivos.map((e) => (
                   <CardProduct
                     name={funcCapitalize(e.name)}
-                    price={e.price1}
-                    description=""
+                    price={e.price}
+                    description={e.description || ""}
                   />
                 ))
               }
