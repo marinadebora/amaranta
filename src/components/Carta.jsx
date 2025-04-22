@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiArrowLeft , FiArrowRight } from "react-icons/fi";
+import { useSwipeable } from 'react-swipeable';
 import "../index.css"
 import Cafe from "./Cafe";
 import Pasteleria from "./Pasteleria";
@@ -46,9 +47,16 @@ const Carta = () =>
 
   }, [page]);
 
-
+  const handlers = useSwipeable({
+    onSwipedLeft: () => nextPage(),
+    onSwipedRight: () => previouPage(),
+    preventScrollOnSwipe: true,
+    trackTouch: true,
+    trackMouse: false,
+  });
 
   return (
+    <div {...handlers}>
     <main className="flex items-center justify-center pt-5 md:pt-0" >
 
       {
@@ -136,6 +144,7 @@ const Carta = () =>
 
       }
     </main>
+    </div>
   );
 };
 
