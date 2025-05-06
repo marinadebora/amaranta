@@ -19,8 +19,8 @@ const EnsaladasGuarniciones = () =>
   let guarniciones = ensaladasGuarniciones.filter(e => e.section === "guarniciones");
 
   return (
-    <div className=" w-full h-[22rem] mt-2" >
-      <div className="w-full h-[85%] grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
+    <div className=" w-full h-[94%] mt-2" >
+      <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
 
         <div className='flex flex-col gap-2 px-2'>
           <>
