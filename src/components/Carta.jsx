@@ -56,8 +56,8 @@ const Carta = () =>
   });
 
   return (
-    <div {...handlers}>
-    <main className="flex items-center justify-center pt-5 md:pt-0" >
+    <div {...handlers} className="w-full flex items-center justify-center">
+    <main className="flex items-center h-[32rem] md:h-full shadow-2xl w-[32rem] justify-center pt-5 md:pt-0" >
 
       {
         page === 0 ?
@@ -78,7 +78,7 @@ const Carta = () =>
 
 
 
-          <div key="carta" className="w-full h-[70vh]  md:h-[35rem] md:w-[30rem] shadow-2xl flex flex-col items-center justify-center pt-2" >
+          <div key="carta" className="w-full h-[70vh]  md:h-[35rem] md:w-[30rem] flex flex-col items-center justify-center pt-2" >
             <div className=" bg-[#fcf2f0] w-[90%] h-full flex flex-col " style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
 
               <div className="w-full flex flex-col items-center mt-6 text-[#f0d1ce]">

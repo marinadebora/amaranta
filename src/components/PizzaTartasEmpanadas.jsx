@@ -19,8 +19,8 @@ const PizzaTartasEmpanadas = () =>
   let empanadas = pizzaTartasEmpanadas.filter(e => e.section === "empanadas");
 
   return (
-    <div className=" w-full h-[94%] mt-2" >
-      <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
+    <div className=" w-full h-[22rem] mt-2" >
+      <div className="w-full h-[85%] grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
 
         <div className='flex flex-col gap-2 px-2'>
           <>
@@ -61,7 +61,7 @@ const PizzaTartasEmpanadas = () =>
           </>
         </div>
 
-        <div className='flex flex-col gap-2 px-2 pt-20 md:pt-10'>
+        <div className='flex flex-col gap-2 px-2 pt-10'>
         <>
           <div className='flex items-center gap-1'>
               <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
