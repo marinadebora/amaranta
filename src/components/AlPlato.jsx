@@ -15,9 +15,11 @@ const AlPlato = () =>
   }, [dispatch]);
 
 
-  let pastas = alPlato?.filter(e => e.section === "pastas" && e.subSection !== "sorrentinos");
+  let pastas = alPlato?.filter(e => e.section === "pastas" && e.subSection !== "sorrentinos"&& e.subSection !== "arroz");
   let sorrentinos = alPlato?.filter(e => e.section === "pastas" && e.subSection === "sorrentinos");
+  let risotto = alPlato?.filter(e => e.section === "pastas" &&  e.subSection === "arroz")
   let carnesYPollos = alPlato?.filter(e => e.section === "carnes y pollos");
+  let salsas = alPlato?.filter(e => e.section === "salsas");
   return (
     <div className=" w-full h-[90%] md:h-full mt-2" >
       <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
@@ -28,7 +30,7 @@ const AlPlato = () =>
             <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
             <h1 className="text-xs">PASTAS</h1>
           </div>
-          <div className='py-1'>
+          <div  className='py-1'>
             {
               pastas && pastas.map((e) => (
                 <CardProduct
@@ -48,6 +50,27 @@ const AlPlato = () =>
                   price={e.price}
                   description={e.description || ""}
                 />
+              ))
+            }
+             <p className='py-1'></p>
+             {
+              salsas && salsas.map((e) => (
+                <CardProduct
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
+                />
+              ))
+            }
+             <p className='py-1'></p>
+               {
+              risotto && risotto.map((e) => (
+                <CardProduct
+                  name={e.name}
+                  price={e.price}
+                  description={e.description || ""}
+                />
+
               ))
             }
 

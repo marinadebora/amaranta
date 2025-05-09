@@ -13,7 +13,8 @@ const Postres = () =>
   {
     dispatch(getPostres())
   }, [dispatch]);
-
+  let TotalPostres = postres?.filter(e => e.name !== "Adicional");
+  let adicional = postres?.filter(e => e.name === "Adicional");
 
   return (
     <div className=" w-full h-[94%] mt-2" >
@@ -27,7 +28,7 @@ const Postres = () =>
             </div>
             <div className='py-1'>
               {
-                postres && postres.map((e) => (
+                TotalPostres && TotalPostres.map((e) => (
                   <CardProduct
                     name={e.name}
                     price={e.price}
@@ -35,6 +36,17 @@ const Postres = () =>
                   />
 
                 ))
+              }
+              {
+                adicional.length > 0 && <div className='w-full flex flex-col'>
+                  <div className='w-full flex justify-between'>
+                    {adicional[0].name && <p className='w-[80%] text-[0.6rem]'>{adicional[0].name}</p>}
+                    {adicional[0].price && <div className='w-[20%] text-[0.6rem] flex justify-end'><p>${adicional[0].price}</p></div>}
+                  </div>
+
+                  {adicional[0].description && <p className='w-[80%] text-[0.5rem] font-extralight italic'>({adicional[0].description})</p>}
+
+                </div>
               }
             </div>
           </>
