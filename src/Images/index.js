@@ -2,7 +2,7 @@ import tapa from './CartaTapa.svg';
 import cafeteria from './CartaCafeteria.svg';
 import pasteleria from './CartaPasteleria.svg';
 import tapeo from './CartaTapeo.svg';
-import pizza from './CartaPizzas.svg';
+import pizza from './Pizzas.svg';
 import entrePanes from './CartaEntrePanes.svg';
 import ensaladas from './CartaEnsaladas.svg';
 import alPlato from './CartaAlPlato.svg';
