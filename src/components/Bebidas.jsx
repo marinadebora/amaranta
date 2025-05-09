@@ -20,7 +20,7 @@ const Bebidas = () =>
   let refrescos = bebidas.filter(e => e.section === "refrescos");
 
   return (
-    <div className=" w-full h-[94%] mt-2" >
+    <div className=" w-full h-[90%] md:h-full mt-2" >
       <div className="w-full h-full grid grid-cols-2 gap-2 text-xs overflow-y-scroll">
 
         <div className='flex flex-col gap-2 px-2'>
@@ -91,8 +91,8 @@ const Bebidas = () =>
                       {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}
                     </div>
                     <div className='w-[40%] flex items-start justify-end gap-2'>
-                      {e.price && e.price !== "0" && <p className='text-[0.6rem]'>{e.price}</p>}
-                      {e.price2 && e.price2 !== "0" && <p className='text-[0.6rem]'>{e.price2}</p>}
+                    {e.price && e.price !== "0" && <p className='text-[0.6rem]'>${e.price}</p>}
+                    {e.price2 && e.price2!=="0"? <p className='text-[0.6rem]'>${e.price2}</p>:<p className='w-[1.6rem]'></p>}
                     </div>
                   </div>
 

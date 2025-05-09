@@ -78,8 +78,8 @@ const Carta = () =>
 
 
 
-          <div key="carta" className="w-full h-[70vh]  md:h-[35rem] md:w-[30rem] shadow-2xl flex flex-col items-center justify-center pt-2" >
-            <div className=" bg-[#fcf2f0] w-[90%] h-full flex flex-col " style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+          <div key="carta" className="w-full h-[35rem]  md:w-[30rem] shadow-2xl flex flex-col items-center justify-around " >
+            <div className=" bg-[#fcf2f0] w-[90%] h-[90%] flex flex-col " style={{ backgroundImage: `url(${imagenes[currentPage]})`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
 
               <div className="w-full flex flex-col items-center mt-6 text-[#f0d1ce]">
                 <h1 className="text-2xl ">AMARANTA</h1>
@@ -134,7 +134,7 @@ const Carta = () =>
 
             </div>
 
-            <div className=" w-full  flex items-center justify-center gap-2  py-2 text-[#769164]">
+            <div className=" w-full h-[6%] flex items-center justify-center gap-2  py-2 text-[#769164]">
               <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:bg-[#769164] hover:text-[#f2d0c7]" onClick={previouPage} ><FiArrowLeft /></button>{/* <p className="font-extrabold">←</p> */}
               <button className="bg-[#f2d0c7] rounded-md px-2 shadow-md cursor-pointer  hover:bg-[#769164] hover:text-[#f2d0c7]" onClick={nextPage}><FiArrowRight /></button>{/* <p className="font-extrabold">→</p> */}
             </div>
