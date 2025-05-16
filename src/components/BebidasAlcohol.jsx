@@ -110,23 +110,6 @@ const BebidasAlcohol = () =>
               }
             </div>
           </>
-            <>
-            <div className='flex items-center gap-1'>
-              <div className='rounded-full w-3 h-3 lg:w-4 lg:h-4 bg-[#f6cec6]'></div>
-              <h1 className="text-xs">TRAGOS Y APERITIVOS</h1>
-            </div>
-            <div className='py-1'>
-              {
-                tragosAperitivos && tragosAperitivos.map((e) => (
-                  <CardProduct
-                    name={funcCapitalize(e.name)}
-                    price={e.price}
-                    description={e.description || ""}
-                  />
-                ))
-              }
-            </div>
-          </>
         </div>
       </div>
     </div>
