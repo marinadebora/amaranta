@@ -36,6 +36,7 @@ const Bebidas = () =>
                     name={e.name}
                     price={e.price}
                     description={e.description || ""}
+                    key={e.name + Math.random()}
                   />
 
                 ))
@@ -55,7 +56,7 @@ const Bebidas = () =>
             </div>
             {
               jugos && jugos.map((e) => (
-                <div className='w-full flex items-start justify-between'>
+                <div key={e.name + Math.random()} className='w-full flex items-start justify-between'>
                   <div className='w-[60%]'>
                     {e.name && <p className='w-[80%] text-[0.6rem]'>{funcCapitalize(e.name)}</p>}
                     {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}
@@ -85,7 +86,7 @@ const Bebidas = () =>
             <div className='py-1'>
               {
                 refrescos && refrescos.map((e) => (
-                  <div className='w-full flex items-start justify-between'>
+                  <div key={e.name + Math.random()} className='w-full flex items-start justify-between'>
                     <div className='w-[60%]'>
                       {e.name && <p className='w-[80%] text-[0.6rem]'>{funcCapitalize(e.name)}</p>}
                       {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}

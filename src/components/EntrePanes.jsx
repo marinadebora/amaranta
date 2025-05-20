@@ -37,6 +37,7 @@ const EntrePanes = () =>
                     name={e.name}
                     price={e.price}
                     description={e.description || ""}
+                    key={e.name + Math.random()}
                   />
 
                 ))
@@ -59,6 +60,7 @@ const EntrePanes = () =>
                   name={e.name}
                   price={e.price}
                   description={e.description || ""}
+                  key={e.name + Math.random()}
                   />
                   
                 ))
@@ -72,6 +74,7 @@ const EntrePanes = () =>
                   name={e.name}
                   price={e.price}
                   description={e.description || ""}
+                  key={e.name + Math.random()}
                   />
                   
                 ))
@@ -85,6 +88,7 @@ const EntrePanes = () =>
                     name={e.name || ""}
                     price={e.price || ""}
                     description={e.description || ""}
+                    key={e.name + Math.random()}
                   />
 
                 ))

@@ -40,6 +40,7 @@ const BebidasAlcohol = () =>
                     name={e.name}
                     price={e.price}
                     description={e.description || ""}
+                    key={e.name + Math.random()}
                   />
 
                 ))
@@ -52,6 +53,7 @@ const BebidasAlcohol = () =>
                       name={e.name}
                       price={e.price}
                       description={e.description || ""}
+                      key={e.name + Math.random()}
                     />
                  
                 ))
@@ -74,14 +76,14 @@ const BebidasAlcohol = () =>
               <div className='py-1'>
                 {
                   cervezas && cervezas.map((e) => (
-                    <div className='w-full flex items-start justify-between'>
+                    <div key={e.name + Math.random()} className='w-full flex items-end justify-between'>
                       <div className='w-[60%]'>
                         {e.name && <p className='w-[80%] text-[0.6rem]'>{funcCapitalize(e.name)}</p>}
                         {e.description && <p className='text-[0.6rem] italic'>({e.description})</p>}
                       </div>
                       <div className='w-[40%] flex items-start justify-end gap-2'>
-                        {e.price && e.price!=="0" && <p className='text-[0.6rem]'>${e.price}</p>}
-                        {e.price2 && e.price2!=="0"? <p className='text-[0.6rem]'>${e.price2}</p>:<p className='w-[1.6rem]'></p>}
+                        {e.price && e.price.length > 1 && <p className='w-[1.6rem] text-[0.6rem]'>${e.price}</p>}
+                        {e.price2 && e.price2.length > 1? <p className='w-[1.6rem] text-[0.6rem]'>${e.price2}</p>:<p className='w-[1.6rem]'></p>}
                       </div>
                     </div>
                   ))
@@ -105,6 +107,7 @@ const BebidasAlcohol = () =>
                     name={funcCapitalize(e.name)}
                     price={e.price}
                     description={e.description || ""}
+                    key={e.name + Math.random()}
                   />
                 ))
               }

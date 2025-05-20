@@ -33,13 +33,14 @@ const Postres = () =>
                     name={e.name}
                     price={e.price}
                     description={e.description || ""}
+                    key={e.name + Math.random()}
                   />
 
                 ))
               }
               {
                 adicional.length > 0 && <div className='w-full flex flex-col'>
-                  <div className='w-full flex justify-between'>
+                  <div key={adicional[0].name + Math.random()} className='w-full flex justify-between'>
                     {adicional[0].name && <p className='w-[80%] text-[0.6rem]'>{adicional[0].name}</p>}
                     {adicional[0].price && <div className='w-[20%] text-[0.6rem] flex justify-end'><p>${adicional[0].price}</p></div>}
                   </div>

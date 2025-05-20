@@ -37,6 +37,7 @@ const Cafe = () =>
                     name={e.name}
                     price={e.price}
                     description={e.description || ""}
+                    key={e.name + Math.random()}
                   />
 
                 ))
@@ -57,6 +58,7 @@ const Cafe = () =>
                     name={e.name}
                   price={e.price}
                   description={e.description || ""}
+                  key={e.name + Math.random()}
                     />
 
                   ))
@@ -79,6 +81,7 @@ const Cafe = () =>
                   name={e.name}
                   price={e.price}
                   description={e.description || ""}
+                  key={e.name + Math.random()}
                   />
 
                 ))
@@ -97,6 +100,7 @@ const Cafe = () =>
                 name={e.name}
                 price={e.price}
                 description={e.description || ""}
+                key={e.name + Math.random()}
                 />
 
               ))

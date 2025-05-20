@@ -35,6 +35,7 @@ const PizzaTartasEmpanadas = () =>
                     name={e.name}
                     price={e.price}
                     description={e.description || ""}
+                    key={e.name + Math.random()}
                   />
 
                 ))
@@ -53,6 +54,7 @@ const PizzaTartasEmpanadas = () =>
                   name={e.name}
                   price={e.price}
                   description={e.description || ""}
+                  key={e.name + Math.random()}
                   />
 
                 ))
@@ -74,6 +76,7 @@ const PizzaTartasEmpanadas = () =>
                   name={e.name}
                   price={e.price}
                   description={e.description || ""}
+                  key={e.name + Math.random()}
                   />
 
                 ))

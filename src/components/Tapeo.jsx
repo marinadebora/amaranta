@@ -31,7 +31,7 @@ const Tapeo = () =>
               <p className='text-xs'>Caliente</p>
               {
                 picadasCalientes && picadasCalientes.map(e => (
-                  <div className='flex flex-col gap-2'>
+                  <div key={e.name + Math.random()} className='flex flex-col gap-2'>
                     {e.description && <p className=' text-[0.5rem] font-extralight italic'>({e.description})</p>}
                     <div className='flex w-full items-center justify-between '>
                       <p className='text-xs'>Para 2</p>
@@ -52,7 +52,7 @@ const Tapeo = () =>
               <p className='text-xs'>Clásica</p>
               {
                 picadasClasicas && picadasClasicas.map(e => (
-                  <div className='flex flex-col gap-2'>
+                  <div key={e.name + Math.random()} className='flex flex-col gap-2'>
                   {e.description && <p className=' text-[0.5rem] font-extralight italic'>({e.description})</p>}
                   <div className='flex w-full items-center justify-between'>
                     <p>Para 2</p>
@@ -85,6 +85,7 @@ const Tapeo = () =>
                 name={e.name}
                 price={e.price}
                 description={e.description || ""}
+                key={e.name + Math.random()}
                 />
 
               ))
